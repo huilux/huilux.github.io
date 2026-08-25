@@ -1,0 +1,830 @@
+<!DOCTYPE html><html data-astro-transition-scope="astro-nfpogox7-2" lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v7.1.6"><script>
+	(() => {
+		document.documentElement.classList.add('has-js');
+		const storageKey = 'huilux-theme';
+		let storedTheme = null;
+		try {
+			storedTheme = localStorage.getItem(storageKey);
+		} catch {}
+		const systemDark = window.matchMedia(
+			'(prefers-color-scheme: dark)',
+		).matches;
+		const theme =
+			storedTheme === 'light' || storedTheme === 'dark'
+				? storedTheme
+				: systemDark
+					? 'dark'
+					: 'light';
+		document.documentElement.dataset.theme = theme;
+		document.documentElement.style.colorScheme = theme;
+	})();
+</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="swap"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.jmhnZfFy.js"></script><script type="module">var e={left:`huilux-sidebar`,right:`huilux-toc`},t=864e5,n=new Intl.NumberFormat(`zh-CN`);function r(e){return Math.max(0,Math.floor((Date.now()-e.getTime())/t))}function i(){let e=document.querySelectorAll(`[data-relative-time]`);for(let t of e){let e=t.dataset.relativeTime;if(!e)continue;let i=new Date(e);if(Number.isNaN(i.getTime()))continue;let a=r(i),o=a===0?`今天`:`${n.format(a)} 天前`;t.textContent=`${t.dataset.relativePrefix??``}${o}`}for(let e of document.querySelectorAll(`[data-freshness-note]`)){let t=Number(e.dataset.staleAfter),n=e.querySelector(`[data-relative-time]`)?.dataset.relativeTime;if(!n||!Number.isFinite(t))continue;let i=new Date(n);Number.isNaN(i.getTime())||(e.hidden=r(i)<t)}}function a(t){try{return localStorage.getItem(e[t])===`collapsed`}catch{return!1}}document.addEventListener(`astro:before-preparation`,e=>{e.to.origin===location.origin&&(document.documentElement.dataset.routeLoading=`true`,document.querySelector(`.content-pane`)?.setAttribute(`aria-busy`,`true`))}),document.addEventListener(`astro:before-swap`,e=>{let t=e.newDocument;t.documentElement.classList.add(`has-js`);let n=document.documentElement.dataset.theme;(n===`light`||n===`dark`)&&(t.documentElement.dataset.theme=n,t.documentElement.style.colorScheme=n,t.querySelector(`meta[name="theme-color"]`)?.setAttribute(`content`,n===`dark`?`#0d1218`:`#f7f9fc`)),t.body.classList.toggle(`left-collapsed`,a(`left`)),t.body.classList.toggle(`right-collapsed`,a(`right`))}),document.addEventListener(`astro:page-load`,()=>{delete document.documentElement.dataset.routeLoading,document.querySelector(`.content-pane`)?.removeAttribute(`aria-busy`),i()});</script><meta name="theme-color" content="#f7f9fc"><title>Hexo &amp; butterfly · HUILUX</title><meta name="description" content="个人博客搭建 Hexo 一、创建博客 先安装 **git 和 node.js** 然后在你要保持博客的路径下执行下面命令 然后进入到 xiaofanBlog/ 修改文件 然后执行命令 如果不行重新输入 hexo d 上面就已经上传到了github仓库了 下面就是怎么修改主题 如果"><link rel="canonical" href="https://huilux.github.io/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="HUILUX RSS" href="https://huilux.github.io/rss.xml"><meta property="og:type" content="article"><meta property="og:url" content="https://huilux.github.io/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><meta property="og:site_name" content="HUILUX"><meta property="og:title" content="Hexo &amp; butterfly · HUILUX"><meta property="og:description" content="个人博客搭建 Hexo 一、创建博客 先安装 **git 和 node.js** 然后在你要保持博客的路径下执行下面命令 然后进入到 xiaofanBlog/ 修改文件 然后执行命令 如果不行重新输入 hexo d 上面就已经上传到了github仓库了 下面就是怎么修改主题 如果"><meta name="twitter:card" content="summary"><meta property="article:published_time" content="2021-02-18T15:32:33.000Z"><meta property="article:modified_time" content="2021-02-18T15:32:33.000Z"><meta property="article:tag" content="Hexo"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Hexo & butterfly","description":"个人博客搭建 Hexo 一、创建博客 先安装 **git 和 node.js** 然后在你要保持博客的路径下执行下面命令 然后进入到 xiaofanBlog/ 修改文件 然后执行命令 如果不行重新输入 hexo d 上面就已经上传到了github仓库了 下面就是怎么修改主题 如果","datePublished":"2021-02-18T15:32:33.000Z","dateModified":"2021-02-18T15:32:33.000Z","keywords":["Hexo"],"mainEntityOfPage":"https://huilux.github.io/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/","publisher":{"@type":"Organization","name":"HUILUX"}}</script><style>@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/89758defcfa85239.woff") format("woff");font-display:swap;font-weight:400;font-style:normal;}@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/14aa8dd5744dd4bc.woff") format("woff");font-display:swap;font-weight:700;font-style:normal;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.3717%;ascent-override:80.1033%;descent-override:25.2587%;line-gap-override:0%;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial Bold";src:local("Arial Bold");font-display:swap;font-weight:700;font-style:normal;size-adjust:92.2954%;ascent-override:86.2448%;descent-override:27.1953%;line-gap-override:0%;}:root{--font-atkinson:Atkinson-c7f4c4e8b285552f,"Atkinson-c7f4c4e8b285552f fallback: Arial","Atkinson-c7f4c4e8b285552f fallback: Arial Bold",sans-serif;}</style><link rel="preload" href="/_astro/fonts/89758defcfa85239.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/_astro/fonts/14aa8dd5744dd4bc.woff" as="font" type="font/woff" crossorigin><script defer src="https://cloud.umami.is/script.js" data-website-id="076a706b-b869-4daf-a0f4-6aa04b5620fa"></script><style>.article-row[data-astro-cid-xiqpnpgl]{gap:var(--space-4);padding:var(--space-4) var(--space-2);border-radius:var(--radius-sm);transition:background var(--transition-fast);grid-template-columns:3.75rem minmax(0,1fr) auto;align-items:baseline;display:grid}.article-row[data-astro-cid-xiqpnpgl]:hover{background:var(--color-surface-subtle)}time[data-astro-cid-xiqpnpgl]{color:var(--color-ink-faint);font-family:var(--font-mono);font-size:var(--text-xs)}time[data-astro-cid-xiqpnpgl] strong[data-astro-cid-xiqpnpgl]{color:var(--color-signal-strong);font-size:var(--text-sm);display:block}.article-path[data-astro-cid-xiqpnpgl]{margin:0 0 var(--space-1);color:var(--color-ink-faint);font-family:var(--font-mono);font-size:var(--text-xs)}h3[data-astro-cid-xiqpnpgl]{font-size:var(--text-base);margin:0;font-weight:600;line-height:1.4}h3[data-astro-cid-xiqpnpgl] a[data-astro-cid-xiqpnpgl]{color:var(--color-ink);text-decoration:none}h3[data-astro-cid-xiqpnpgl] a[data-astro-cid-xiqpnpgl]:hover{color:var(--color-signal)}.article-description[data-astro-cid-xiqpnpgl]{margin:var(--space-1) 0 0;color:var(--color-ink-muted);font-size:var(--text-sm)}.article-reading-time[data-astro-cid-xiqpnpgl]{color:var(--color-ink-faint);font-family:var(--font-mono);font-size:var(--text-xs);white-space:nowrap}@media (width<=36rem){.article-row[data-astro-cid-xiqpnpgl]{grid-template-columns:3rem minmax(0,1fr)}.article-reading-time[data-astro-cid-xiqpnpgl]{display:none}}
+</style><link rel="stylesheet" href="/_astro/_..DkByDrr1.css"><link rel="stylesheet" href="/_astro/Prose.9uhroQl0.css"><link rel="stylesheet" href="/_astro/BlogShell.DkLqfGLC.css"><link rel="stylesheet" href="/_astro/BaseLayout.DG1ej1Cz.css"><style>[data-astro-transition-scope="astro-jbu3t6dv-1"] { view-transition-name: blog-content; }@layer astro { ::view-transition-old(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-nfpogox7-2"] { view-transition-name: astro-nfpogox7-2; }@layer astro { ::view-transition-old(astro-nfpogox7-2) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-nfpogox7-2) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-nfpogox7-2) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-nfpogox7-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-nfpogox7-2"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-nfpogox7-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-nfpogox7-2"] { animation: none; mix-blend-mode: normal; }</style></head><body class="has-blog-shell"><a class="skip-link" href="#main-content">跳到主要内容</a><header class="site-header" data-astro-cid-fzpbxy5g><div class="header-start" data-astro-cid-fzpbxy5g><button class="icon-button sidebar-toggle sidebar-toggle-left" type="button" data-sidebar-toggle="left" aria-controls="content-drawer" aria-expanded="true" title="折叠或展开文件导航" data-astro-cid-fzpbxy5g><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-fzpbxy5g><path d="M3 4.5h14v11H3zM8 4.5v11" data-astro-cid-fzpbxy5g></path></svg><span class="visually-hidden" data-astro-cid-fzpbxy5g>切换文件导航</span></button><a class="wordmark" href="/" aria-label="HUILUX 首页" data-astro-cid-fzpbxy5g><span class="signal-dot" aria-hidden="true" data-astro-cid-fzpbxy5g></span><span data-astro-cid-fzpbxy5g>HUI<span class="wordmark-cut" data-astro-cid-fzpbxy5g>/</span>LUX</span></a></div><nav class="desktop-navigation" aria-label="主导航" data-astro-cid-fzpbxy5g><ul role="list" data-astro-cid-fzpbxy5g><li data-astro-cid-fzpbxy5g><a href="/" data-astro-cid-fzpbxy5g>首页</a></li><li data-astro-cid-fzpbxy5g><a href="/blog/" aria-current="page" data-astro-cid-fzpbxy5g>文章</a></li><li data-astro-cid-fzpbxy5g><a href="/tags/" data-astro-cid-fzpbxy5g>标签</a></li><li data-astro-cid-fzpbxy5g><a href="/search/" data-astro-cid-fzpbxy5g>搜索</a></li><li data-astro-cid-fzpbxy5g><a href="/about/" data-astro-cid-fzpbxy5g>关于</a></li></ul></nav><div class="header-actions" data-astro-cid-fzpbxy5g><button class="theme-toggle" type="button" aria-label="切换深色主题" aria-pressed="false" title="切换深色主题" data-astro-cid-l6lhmie6><svg class="sun" aria-hidden="true" viewBox="0 0 24 24" data-astro-cid-l6lhmie6><circle cx="12" cy="12" r="3.5" data-astro-cid-l6lhmie6></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" data-astro-cid-l6lhmie6></path></svg><svg class="moon" aria-hidden="true" viewBox="0 0 24 24" data-astro-cid-l6lhmie6><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8a8.5 8.5 0 1 0 11.4 11.4Z" data-astro-cid-l6lhmie6></path></svg><span class="visually-hidden" data-astro-cid-l6lhmie6>切换颜色主题</span></button><script type="module">var e=()=>{};function t(){e();let t=new AbortController,n=document.querySelector(`.theme-toggle`);if(!n){e=()=>t.abort();return}function r(e,t=!0){document.documentElement.dataset.theme=e,document.documentElement.style.colorScheme=e,n.setAttribute(`aria-pressed`,String(e===`dark`));let r=e===`dark`?`切换浅色主题`:`切换深色主题`;if(n.setAttribute(`aria-label`,r),n.setAttribute(`title`,r),document.querySelector(`meta[name="theme-color"]`)?.setAttribute(`content`,e===`dark`?`#0d1218`:`#f7f9fc`),t)try{localStorage.setItem(`huilux-theme`,e)}catch{}}r(document.documentElement.dataset.theme===`dark`?`dark`:`light`,!1),n.addEventListener(`click`,()=>{r(document.documentElement.dataset.theme===`dark`?`light`:`dark`)},{signal:t.signal}),e=()=>t.abort()}t(),document.addEventListener(`astro:page-load`,t);</script><button class="icon-button sidebar-toggle sidebar-toggle-right" type="button" data-sidebar-toggle="right" aria-controls="right-rail" aria-expanded="true" title="折叠或展开本页目录" data-astro-cid-fzpbxy5g><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-fzpbxy5g><path d="M5 6h1.5M11 6h5M5 10h1.5M11 10h5M5 14h1.5M11 14h5" data-astro-cid-fzpbxy5g></path></svg><span class="visually-hidden" data-astro-cid-fzpbxy5g>切换本页目录</span></button><details class="mobile-navigation" data-astro-cid-fzpbxy5g><summary role="button" aria-expanded="false" aria-controls="mobile-menu" data-astro-cid-fzpbxy5g><span class="visually-hidden" data-navigation-label data-astro-cid-fzpbxy5g>打开主导航</span><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-fzpbxy5g><path d="M3 5h14M3 10h14M3 15h14" data-astro-cid-fzpbxy5g></path></svg></summary><nav id="mobile-menu" class="mobile-menu" aria-label="移动端主导航" data-astro-cid-fzpbxy5g><ul role="list" data-astro-cid-fzpbxy5g><li data-astro-cid-fzpbxy5g><a href="/" data-astro-cid-fzpbxy5g>首页</a></li><li data-astro-cid-fzpbxy5g><a href="/blog/" aria-current="page" data-astro-cid-fzpbxy5g>文章</a></li><li data-astro-cid-fzpbxy5g><a href="/tags/" data-astro-cid-fzpbxy5g>标签</a></li><li data-astro-cid-fzpbxy5g><a href="/search/" data-astro-cid-fzpbxy5g>搜索</a></li><li data-astro-cid-fzpbxy5g><a href="/about/" data-astro-cid-fzpbxy5g>关于</a></li></ul></nav></details></div></header><script type="module">var e={left:`huilux-sidebar`,right:`huilux-toc`},t=()=>{};function n(t){try{return localStorage.getItem(e[t])===`collapsed`}catch{return!1}}function r(){t();let r=new AbortController,{signal:i}=r,a=document.body,o=document.querySelector(`[data-sidebar-toggle="left"]`),s=document.querySelector(`[data-sidebar-toggle="right"]`),c=window.matchMedia(`(max-width: 52rem)`),l=window.matchMedia(`(max-width: 74rem)`),u=document.querySelector(`.mobile-navigation`),d=u?.querySelector(`summary`),f=u?.querySelector(`[data-navigation-label]`),p;if(!o){t=()=>r.abort();return}function m(e){return e===`left`?c.matches:l.matches}function h(e){return m(e)?a.classList.contains(`mobile-${e}-open`):!a.classList.contains(`${e}-collapsed`)}function g(){for(let e of[`left`,`right`]){let t=e===`left`?o:s,n=e===`left`?`文件导航`:`本页目录`,r=h(e);t?.setAttribute(`aria-expanded`,String(r));let i=r?`折叠${n}`:`展开${n}`;t?.setAttribute(`title`,i),t?.setAttribute(`aria-label`,i)}}function _(t,n,r=!0){if(a.classList.toggle(`${t}-collapsed`,n),r)try{localStorage.setItem(e[t],n?`collapsed`:`expanded`)}catch{}g()}function v(e){a.classList.toggle(`mobile-${e}-open`),g()}_(`left`,n(`left`),!1),_(`right`,n(`right`),!1),g(),p=new MutationObserver(g),p.observe(a,{attributeFilter:[`class`]}),o.addEventListener(`click`,()=>{c.matches?v(`left`):_(`left`,!a.classList.contains(`left-collapsed`))},{signal:i}),s?.addEventListener(`click`,()=>{l.matches?v(`right`):_(`right`,!a.classList.contains(`right-collapsed`))},{signal:i}),c.addEventListener(`change`,g,{signal:i}),l.addEventListener(`change`,g,{signal:i}),u?.addEventListener(`toggle`,()=>{d?.setAttribute(`aria-expanded`,String(u.open)),f&&(f.textContent=u.open?`关闭主导航`:`打开主导航`)},{signal:i}),document.addEventListener(`keydown`,e=>{e.key!==`Escape`||!u?.open||(u.open=!1,d?.focus())},{signal:i}),document.addEventListener(`pointerdown`,e=>{!u?.open||u.contains(e.target)||(u.open=!1)},{signal:i}),t=()=>{p?.disconnect(),r.abort()}}r(),document.addEventListener(`astro:page-load`,r);</script><main id="main-content"><div class="blog-shell container" data-has-toc="true" data-astro-cid-5kbjrbpr><div class="drawer-backdrop" aria-hidden="true" data-astro-cid-5kbjrbpr></div><aside data-astro-transition-persist="huilux-file-tree-rail" class="left-rail" id="content-drawer" aria-label="内容目录" data-astro-cid-5kbjrbpr><div class="rail-sticky" data-astro-cid-5kbjrbpr><div class="rail-toolbar" data-astro-cid-5kbjrbpr><span class="toolbar-label" data-astro-cid-5kbjrbpr>NAV</span><button class="drawer-close" type="button" aria-label="关闭文件导航" data-astro-cid-5kbjrbpr><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-5kbjrbpr><path d="m5 5 10 10M15 5 5 15" data-astro-cid-5kbjrbpr></path></svg></button></div><div class="left-rail-content" id="sidebar-content" data-astro-cid-5kbjrbpr><nav class="file-tree file-tree--rail" data-file-tree aria-label="文章目录树"><div class="tree-heading"><p>CONTENT MAP</p><span>18 FILES</span></div><div class="tree-search tree-enhancement"><svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="4.75"></circle><path d="m12 12 4 4"></path></svg><label class="visually-hidden" for="file-tree-search">搜索文章</label><input id="file-tree-search" type="search" placeholder="搜索文章或目录…" autocomplete="off" spellcheck="false" aria-keyshortcuts="/" data-tree-search><button class="tree-search-clear" type="button" aria-label="清除文章筛选" title="清除文章筛选" hidden data-tree-search-clear><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8"></path></svg></button></div><div class="tree-utility tree-enhancement"><span class="tree-status" role="status" aria-live="polite" data-tree-status>18 篇文章</span><div class="tree-actions" aria-label="文件树操作"><button type="button" data-tree-expand-all>展开</button><span aria-hidden="true">/</span><button type="button" data-tree-collapse-all>折叠</button></div></div><ul class="tree-level tree-root"><li class="tree-folder" data-tree-folder data-folder-slug="博客建设" data-expanded="true"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE" aria-expanded="true" aria-label="折叠博客建设" title="折叠博客建设" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" title="博客建设" data-tree-link><span class="folder-name">博客建设</span></a><span class="item-count" aria-label="8 篇文章">8</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE" class="tree-level" data-tree-group><li class="tree-folder" data-tree-folder data-folder-slug="博客建设/Hexo-Hugo" data-expanded="true"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FHexo-Hugo" aria-expanded="true" aria-label="折叠Hexo&amp;Hugo" title="折叠Hexo&amp;Hugo" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/" title="Hexo&amp;Hugo" data-tree-link><span class="folder-name">Hexo&amp;Hugo</span></a><span class="item-count" aria-label="3 篇文章">3</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FHexo-Hugo" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E6%8C%89%E5%AE%98%E6%96%B9%E6%B5%81%E7%A8%8B%E9%87%8D%E5%BB%BAHuilux/" title="按官方流程重建 Huilux" data-tree-link data-tree-article data-search-text="博客建设 Hexo&amp;Hugo 按官方流程重建 Huilux 博客建设/Hexo-Hugo/按官方流程重建Huilux"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>按官方流程重建 Huilux</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E4%BB%8EHexo%E5%88%B0Hugo/" title="从 Hexo 迁移到 Hugo" data-tree-link data-tree-article data-search-text="博客建设 Hexo&amp;Hugo 从 Hexo 迁移到 Hugo 博客建设/Hexo-Hugo/从Hexo到Hugo"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>从 Hexo 迁移到 Hugo</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="Hexo &amp; butterfly" aria-current="page" data-tree-link data-tree-article data-search-text="博客建设 Hexo&amp;Hugo Hexo &amp; butterfly 博客建设/Hexo-Hugo/Hexo博客搭建记录"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Hexo &amp; butterfly</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="博客建设/Markdown与写作" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FMarkdown%E4%B8%8E%E5%86%99%E4%BD%9C" aria-expanded="false" aria-label="展开Markdown与写作" title="展开Markdown与写作" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/" title="Markdown与写作" data-tree-link><span class="folder-name">Markdown与写作</span></a><span class="item-count" aria-label="3 篇文章">3</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FMarkdown%E4%B8%8E%E5%86%99%E4%BD%9C" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/%E5%86%99%E6%96%87%E7%AB%A0%E7%94%A8%E5%88%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="写文章用到的语法" data-tree-link data-tree-article data-search-text="博客建设 Markdown与写作 写文章用到的语法 博客建设/Markdown与写作/写文章用到的语法"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>写文章用到的语法</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/%E7%94%A8VsCode%E4%BC%98%E9%9B%85%E5%86%99MarkDown/" title="用 VsCode 优雅写 MarkDown" data-tree-link data-tree-article data-search-text="博客建设 Markdown与写作 用 VsCode 优雅写 MarkDown 博客建设/Markdown与写作/用VsCode优雅写MarkDown"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>用 VsCode 优雅写 MarkDown</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/Astro%20Markdown%E8%AF%AD%E6%B3%95%E9%AA%8C%E6%94%B6/" title="Astro Markdown 语法验收" data-tree-link data-tree-article data-search-text="博客建设 Markdown与写作 Astro Markdown 语法验收 博客建设/Markdown与写作/Astro Markdown语法验收"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Astro Markdown 语法验收</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="博客建设/部署与统计" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2F%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1" aria-expanded="false" aria-label="展开部署与统计" title="展开部署与统计" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1/" title="部署与统计" data-tree-link><span class="folder-name">部署与统计</span></a><span class="item-count" aria-label="2 篇文章">2</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2F%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="部署博客到服务器" data-tree-link data-tree-article data-search-text="博客建设 部署与统计 部署博客到服务器 博客建设/部署与统计/博客部署服务器"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>部署博客到服务器</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1/GitHubPages%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" title="用 GitHub Actions 把 Astro 博客发布到 GitHub Pages" data-tree-link data-tree-article data-search-text="博客建设 部署与统计 用 GitHub Actions 把 Astro 博客发布到 GitHub Pages 博客建设/部署与统计/GitHubPages自动发布"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>用 GitHub Actions 把 Astro 博客发布到 GitHub Pages</span></a></li></ul></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="Linux" data-expanded="true"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux" aria-expanded="true" aria-label="折叠Linux" title="折叠Linux" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/" title="Linux" data-tree-link><span class="folder-name">Linux</span></a><span class="item-count" aria-label="10 篇文章">10</span></div><ul id="tree-group-Linux" class="tree-level" data-tree-group><li class="tree-folder" data-tree-folder data-folder-slug="Linux/ArchLinux" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux%2FArchLinux" aria-expanded="false" aria-label="展开ArchLinux" title="展开ArchLinux" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/ArchLinux/" title="ArchLinux" data-tree-link><span class="folder-name">ArchLinux</span></a><span class="item-count" aria-label="5 篇文章">5</span></div><ul id="tree-group-Linux%2FArchLinux" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/Arch%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" title="Arch系统配置" data-tree-link data-tree-article data-search-text="Linux ArchLinux Arch系统配置 Linux/ArchLinux/Arch系统配置"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Arch系统配置</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux-Typora-Picgo/" title="ArchLinux-Typora-Picgo" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux-Typora-Picgo Linux/ArchLinux/ArchLinux-Typora-Picgo"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux-Typora-Picgo</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux%E8%A7%A6%E6%91%B8%E6%9D%BF/" title="ArchLinux触摸板" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux触摸板 Linux/ArchLinux/ArchLinux触摸板"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux触摸板</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux%E5%A4%96%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%99%A8/" title="ArchLinux外接显示器" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux外接显示器 Linux/ArchLinux/ArchLinux外接显示器"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux外接显示器</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" title="ArchLinux系统安装" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux系统安装 Linux/ArchLinux/ArchLinux系统安装"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux系统安装</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="Linux/文件与存储" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux%2F%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8" aria-expanded="false" aria-label="展开文件与存储" title="展开文件与存储" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/" title="文件与存储" data-tree-link><span class="folder-name">文件与存储</span></a><span class="item-count" aria-label="4 篇文章">4</span></div><ul id="tree-group-Linux%2F%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/Btrfs%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/" title="Btrfs故障排查" data-tree-link data-tree-article data-search-text="Linux 文件与存储 Btrfs故障排查 Linux/文件与存储/Btrfs故障排查"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Btrfs故障排查</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/Btrfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%8B%93%E5%B1%95%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" title="Btrfs文件系统拓展磁盘空间" data-tree-link data-tree-article data-search-text="Linux 文件与存储 Btrfs文件系统拓展磁盘空间 Linux/文件与存储/Btrfs文件系统拓展磁盘空间"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Btrfs文件系统拓展磁盘空间</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/Linux%E6%8C%82%E8%BD%BDExt4%E5%88%86%E5%8C%BA%E9%94%99%E8%AF%AF/" title="Linux挂载Ext4分区错误" data-tree-link data-tree-article data-search-text="Linux 文件与存储 Linux挂载Ext4分区错误 Linux/文件与存储/Linux挂载Ext4分区错误"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Linux挂载Ext4分区错误</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/SSD%E7%8A%B6%E6%80%81%E8%AE%B0%E5%BD%95/" title="SSD状态记录" data-tree-link data-tree-article data-search-text="Linux 文件与存储 SSD状态记录 Linux/文件与存储/SSD状态记录"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>SSD状态记录</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="Linux/桌面与窗口" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux%2F%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3" aria-expanded="false" aria-label="展开桌面与窗口" title="展开桌面与窗口" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3/" title="桌面与窗口" data-tree-link><span class="folder-name">桌面与窗口</span></a><span class="item-count" aria-label="1 篇文章">1</span></div><ul id="tree-group-Linux%2F%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3/Wallpaper%20Engine%20%E5%A3%81%E7%BA%B8%E6%8F%90%E5%8F%96/" title="Wallpaper Engine 壁纸提取" data-tree-link data-tree-article data-search-text="Linux 桌面与窗口 Wallpaper Engine 壁纸提取 Linux/桌面与窗口/Wallpaper Engine 壁纸提取"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Wallpaper Engine 壁纸提取</span></a></li></ul></li></ul></li></ul><p class="tree-empty" hidden data-tree-empty>没有匹配的文章</p></nav><script type="module" src="/_astro/FileTree.astro_astro_type_script_index_0_lang.DqM_1WgQ.js"></script></div></div></aside><div data-astro-transition-scope="astro-jbu3t6dv-1" class="content-pane" data-astro-cid-5kbjrbpr><div class="route-content" data-astro-cid-jo55ryrt><nav class="breadcrumbs" aria-label="面包屑" data-astro-cid-est43gev><a href="/blog/" data-astro-cid-est43gev>文章</a><span aria-hidden="true" data-astro-cid-est43gev>/</span><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" data-astro-cid-est43gev>博客建设</a><span aria-hidden="true" data-astro-cid-est43gev>/</span><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/" data-astro-cid-est43gev>Hexo-Hugo</a></nav><header class="article-header" data-astro-cid-est43gev><p class="eyebrow" data-astro-cid-est43gev>博客建设.HEXO-HUGO / 2021.02.18</p><h1 data-astro-cid-est43gev>Hexo &amp; butterfly</h1><p class="description" data-astro-cid-est43gev>个人博客搭建 Hexo 一、创建博客 先安装 **git 和 node.js** 然后在你要保持博客的路径下执行下面命令 然后进入到 xiaofanBlog/ 修改文件 然后执行命令 如果不行重新输入 hexo d 上面就已经上传到了github仓库了 下面就是怎么修改主题 如果</p><div class="article-meta" data-astro-cid-est43gev><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>发布</span><time datetime="2021-02-18T15:32:33.000Z" data-astro-cid-est43gev>2021/02/18</time><span class="relative-age" data-relative-time="2021-02-18T15:32:33.000Z" data-relative-prefix="· " data-astro-cid-est43gev>· 2,013 天前</span></span><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>阅读</span>约 13 分钟</span><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>字数</span>3,537 字</span></div><ul class="tag-list" role="list" aria-label="文章标签" data-astro-cid-est43gev><li data-astro-cid-est43gev><a href="/tags/Hexo/" data-astro-cid-est43gev>#Hexo</a></li></ul><aside class="freshness-note" aria-label="内容时效提示" data-freshness-note data-stale-after="365" data-astro-cid-est43gev><strong data-astro-cid-est43gev>内容时效</strong><p data-astro-cid-est43gev>本文最后维护于<time datetime="2021-02-18T15:32:33.000Z" data-relative-time="2021-02-18T15:32:33.000Z" data-astro-cid-est43gev>2,013 天前</time>，部分技术细节可能已经变化，请结合当前版本和官方文档核对。</p></aside></header><div class="prose"><hr>
+<h1 id="个人博客搭建-hexo">个人博客搭建 Hexo</h1>
+<h2 id="一创建博客">一、创建博客</h2>
+<blockquote>
+<p>先安装 <strong>git 和 node.js</strong></p>
+</blockquote>
+<blockquote>
+<p>然后在你要保持博客的路径下执行下面命令</p>
+</blockquote>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-cli</span><span style="color:#6A737D;--shiki-dark:#6A737D">   # 安装hexo</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> init</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF">folde</span><span style="color:#24292E;--shiki-dark:#E1E4E8">r</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#6A737D;--shiki-dark:#6A737D">  # 安装博客</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> cd</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF">folde</span><span style="color:#24292E;--shiki-dark:#E1E4E8">r</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#6A737D;--shiki-dark:#6A737D">    # 进入到安装博客的路径</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#6A737D;--shiki-dark:#6A737D">    # 安装npm</span></span></code></pre>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218112216.png" alt="image-20210218112210771"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218111819.png" alt="image-20210218111818131"></p>
+<blockquote>
+<p>然后进入到 xiaofanBlog/ 修改文件</p>
+</blockquote>
+<img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218113450.png" alt="image-20210218113449005" style="zoom:150%;">
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218112801.png" alt="image-20210218112759252"></p>
+<blockquote>
+<p>然后执行命令</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ npm install hexo-deployer-git --save</span></span>
+<span class="line"><span>$ hexo d</span></span></code></pre>
+</blockquote>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218113755.png" alt="image-20210218113752927"></p>
+<p>如果不行重新输入 hexo d</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218114336.png" alt="image-20210218114333983"></p>
+<blockquote>
+<p>上面就已经上传到了github仓库了</p>
+<p>下面就是怎么修改主题</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>如果你没有设置 git 的邮箱和用户名则在</p>
+<p>hexo d 时会出现下面提示</p>
+<p>只需要设置邮箱和用户名即可</p>
+</blockquote>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/tCTxUb8v7EpJXIe.png" alt="image-20210310144318638"></p>
+<h2 id="二修改主题">二、修改主题</h2>
+<p>从 hexo<strong>主题</strong> 官网下载主题，直接 git clone 即可</p>
+<p>然后就是把主题放到博客文件夹 themes里面，重命名</p>
+<p>然后在 _config.yml 中修改主题（注意名称要和 themes 里面的主题文件夹一致）</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218142237.png" alt="image-20210218142059021"></p>
+<p>保存之后用重新部署一下如图</p>
+<img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218142514.png" alt="image-20210218142512671">
+<p>如果出现了下面这个问题</p>
+<img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210218142548.png" alt="image-20210218142546760" style="zoom:80%;">
+<p>解决方案输入下面命令</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-renderer-pug</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-renderer-stylus</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --save</span></span></code></pre>
+<p>清理缓存代码</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> clean</span></span></code></pre>
+<hr>
+<h2 id="三主题美化">三、主题美化</h2>
+<h3 id="标签页">标签页</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> n</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> page</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> tags</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">然后找到</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> source/tags/index.md文件</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">修改为</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">---</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">title:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 標籤</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">date:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 2018-01-05</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 00:00:00</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 不动</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">type</span><span style="color:#032F62;--shiki-dark:#9ECBFF">:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "tags"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">top_img:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 图片</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">---</span></span></code></pre>
+<h3 id="分类页">分类页</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">$</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> n</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> page</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> categories</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">同样找到</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> source/categories/index.md文件</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">修改为</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">---</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">title:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 分類</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">date:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 2018-01-05</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 00:00:00</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">type</span><span style="color:#032F62;--shiki-dark:#9ECBFF">:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "categories"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">---</span></span></code></pre>
+<h3 id="代码主题和能否copy">代码主题和能否Copy</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">highlight_theme:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> pale</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> night</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #  darker / pale night / light / ocean / mac / mac light / false</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">highlight_copy:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 能否复制</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">highlight_lang:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # show the code language</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">highlight_shrink:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true 全部代碼框不展開，需点击>打開false 代碼狂展開，有>點擊按鈕 none 不顯示>按鈕</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">code_word_wrap:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 代码换行</span></span></code></pre>
+<h3 id="主页标签页等图片设置">主页标签页等图片设置</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">//</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Disable all banner image</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">disable_top_img:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 显示顶部图为 false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 顶部图</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">index_img:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /img/背景.jpg</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 默认的top_img，当页面的top_img 没有配置时，会显示default_top_img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">default_top_img:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 归档页面的top_img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">archive_img:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># tag 子页面的默认top_img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">tag_img:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># tag 子页面的top_img，可配置每个 tag 的 top_img</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  - tag name: xxxxx</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">tag_per_img:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># category 子页面的默认top_img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">category_img:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># category 子页面的top_img，可配置每个category 的top_img</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  - category name: xxxxx</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">category_per_img:</span></span></code></pre>
+<h3 id="文章图片设置">文章图片设置</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">cover:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # display the cover or not (是否顯示文章封面)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  index_enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 在主页</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  aside_enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 在文章页</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  archives_enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # the position of cover in home page (封面顯示的位置)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # left/right/both</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  position:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> left</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 图片在左边</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  default_cover:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    #- https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg</span></span></code></pre>
+<h3 id="文章在主页展示的字数">文章在主页展示的字数</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">index_post_content:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  method:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  length:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 200</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 预览多少。0 就没有了</span></span></code></pre>
+<p>如200</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220094718.png" alt="image-20210220094717060"></p>
+<h3 id="文章置顶">文章置顶</h3>
+<blockquote>
+<p>直接在文章的front-matter区域里添加sticky: 1属性来把这篇文章置顶。数值越大，置顶的优先级越大。</p>
+</blockquote>
+<h3 id="文章主页和阅读页显示">文章主页和阅读页显示</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">//</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 主题配置</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">post_meta:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  page:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Home Page</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    date_type:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> both</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # created or updated or both 主頁文章日期是創建日或者更新日或都顯示</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    date_format:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> date</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # date/relative 顯示日期還是相對日期</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    categories:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true or false 主頁是否顯示分類</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    tags:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true or false 主頁是否顯示標籤</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    label:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true or false 顯示描述性文字</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  post:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    date_type:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> both</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # created or updated or both 文章頁日期是創建日或者更新日或都顯示</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    date_format:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> date</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # date/relative 顯示日期還是相對日期</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    categories:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true or false 文章頁是否顯示分類</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    tags:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true or false 文章頁是否顯示標籤</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    label:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # true or false 顯示描述性文字</span></span></code></pre>
+<h3 id="文章阅读页显示目录">文章阅读页显示目录</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># toc (目錄)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">toc:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  number:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  style_simple:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span></span></code></pre>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220104649.png" alt="image-20210220104648888"></p>
+<blockquote>
+<p>特定文章也可以设定是否显示目录</p>
+<p>在文章头部添加</p>
+<p>toc_number和toc，配置为 true 和 false</p>
+</blockquote>
+<h3 id="相关文章">相关文章</h3>
+<blockquote>
+<p>相关文章推荐的原理是根据文章tags的比重来推荐</p>
+</blockquote>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Related Articles</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">related_post:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  limit:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 篇数</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  date_type:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> created</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # or created or updated 文章日期顯示創建日或者更新日</span></span>
+<span class="line"></span></code></pre>
+<h3 id="文章描点">文章描点</h3>
+<blockquote>
+<p>开启文章锚点后，当你在文章页进行滚动时，文章链接会根据标题ID进行替换
+(注意:每替换一次，会留下一个历史记录。所以如果一篇文章有很多锚点的话，网页的历史记录会很多。)</p>
+</blockquote>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># anchor</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># when you scroll in post, the URL will update according to header id.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">anchor:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="文章编辑按钮">文章编辑按钮</h3>
+<blockquote>
+<p>在文章标题旁边显示一个编辑按钮，点击会跳转到对应的链接去。</p>
+</blockquote>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Post edit</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Easily browse and edit blog source code online.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">post_edit:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # url: https://github.com/755400668/755400668.github/edit/main/source/</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  url:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> https://github.com/755400668/755400668.github/edit/main/source/</span></span></code></pre>
+<h3 id="文章版权">文章版权</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">post_copyright:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  decode:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 显示中文网址</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  license:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> CC</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> BY-NC-SA</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 4.0</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  license_url:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> https://creativecommons.org/licenses/by-nc-sa/4.0/</span></span></code></pre>
+<p>如果想要某偏文章不显示版权，在文章标题添加<strong>copyright: false</strong> 即可</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220103922.png" alt="image-20210220103920494"></p>
+<h3 id="文章打赏">文章打赏</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Sponsor/reward</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">reward:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  QR_code:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    -</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> img:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /img/wechat.jpg</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      link:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      text:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> wechat</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    -</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> img:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /img/alipay.jpg</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      link:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      text:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> alipay</span></span></code></pre>
+<h3 id="头像">头像</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Avatar (頭像)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">avatar:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  img:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /img/wechat.gif</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  effect:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 转圈</span></span></code></pre>
+<h3 id="网站内容是否可以复制">网站内容是否可以复制</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># copy settings</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">copy:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  copyright:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    limit_count:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 500</span></span></code></pre>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220110231.png" alt="image-20210220110230870"></p>
+<h3 id="页脚设置">页脚设置</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Footer Settings</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># --------------------------------------</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">footer:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  owner:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    since:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2021</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  custom_text:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 愿世间美好与你环环相扣</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  copyright:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Copyright of theme and framework</span></span></code></pre>
+<h3 id="夜间模式">夜间模式</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># dark mode</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">darkmode:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # Toggle Button to switch dark/light mode</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  button:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # Switch dark/light mode automatically (自動切換 dark mode和 light mode)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # autoChangeMode: 1  Following System Settings, if the system doesn't support dark mode, it will switch dark mode between 6 pm to 6 am</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # autoChangeMode: false</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  autoChangeMode:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span></span></code></pre>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220110817.png" alt="image-20210220110816979"></p>
+<h3 id="阅读模式">阅读模式</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Read Mode (閲讀模式)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">readmode:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="字体大小">字体大小</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Bottom right button (右下角按鈕)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Change font size</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">change_font_size:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="访问人数">访问人数</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># busuanzi count for PV / UV in site</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 訪問人數</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">busuanzi:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  site_uv:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  site_pv:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  page_pv:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"></span></code></pre>
+<h3 id="侧边栏">侧边栏</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># aside (側邊欄)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># --------------------------------------</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">aside:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  hide:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  button:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  mobile:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # display on mobile</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  position:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> right</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 右边显示</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 头像卡片</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_author:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    description:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    button:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      icon:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> fab</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> fa-github</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      text:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Github</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      link:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> https://github.com/755400668</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 公告卡片</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_announcement:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    content:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 欢迎来到灰灰爱吃小云朵的博客</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_recent_post:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    limit:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # if set 0 will show all</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    sort:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> date</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # date or updated</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    sort_order:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Don't modify the setting unless you know how it works</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 分类卡片</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_categories:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    limit:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 8</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # if set 0 will show all</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    expand:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> none</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # none/true/false</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    sort_order:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Don't modify the setting unless you know how it works</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 标签卡片</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_tags:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    limit:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 40</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # if set 0 will show all</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    color:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    sort_order:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Don't modify the setting unless you know how it works</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_archives:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    type</span><span style="color:#032F62;--shiki-dark:#9ECBFF">:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> monthly</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # yearly or monthly</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    format:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> MMMM</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> YYYY</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # eg: YYYY年MM月</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    order:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -1</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Sort of order. 1, asc for ascending; -1, desc for descending</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    limit:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 8</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # if set 0 will show all</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    sort_order:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Don't modify the setting unless you know how it works</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  card_webinfo:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    post_count:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    last_push_date:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    sort_order:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Don't modify the setting unless you know how it works</span></span></code></pre>
+<h3 id="访问人数-1">访问人数</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># busuanzi count for PV / UV in site</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 訪問人數</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">busuanzi:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  site_uv:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  site_pv:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  page_pv:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="网站运行时间">网站运行时间</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Time difference between publish date and now (網頁運行時間)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Formal: Month/Day/Year Time or Year/Month/Day Time</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">runtimeshow:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  publish_date:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 02/18/2021</span></span></code></pre>
+<h3 id="tag-hide">Tag-hide</h3>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220112432.png" alt="image-20210220112431535"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220112517.png" alt="image-20210220112516336"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210220112533.png" alt="image-20210220112530047"></p>
+<h3 id="评论">评论</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># gitalk</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># https://github.com/gitalk/gitalk</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">gitalk:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  client_id:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> aa776ef94071498f6753</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  client_secret:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 1cbad93b480c8980863bbfcf1fd8926c2fdd9863</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  repo:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 755400668.github.io</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  owner:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 755400668</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  admin:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 755400668</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  language:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> zh-CN</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # en, zh-CN, zh-TW, es-ES, fr, ru</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  perPage:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 10</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Pagination size, with maximum 100.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  distractionFreeMode:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Facebook-like distraction free mode.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  pagerDirection:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> last</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Comment sorting direction, available values are last and first.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  createIssueManually:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Gitalk will create a corresponding github issue for your every single page automatically</span></span></code></pre>
+<h3 id="搜索">搜索</h3>
+<p>先安装</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-generator-search</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --save</span></span></code></pre>
+<p>然后主题配置文件</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Local search</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">local_search:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="ui颜色">UI颜色</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># theme_color:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  main:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#49B1F5"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  paginator:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#00c4b6"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  button_hover:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#FF7242"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  text_selection:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#00c4b6"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  link_color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#99a9bf"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  meta_color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#858585"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  hr_color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#A4D8FA"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  code_foreground:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#F47466"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  code_background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "rgba(27, 31, 35, .05)"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  toc_color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#00c4b6"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  blockquote_padding_color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#49b1f5"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  blockquote_background_color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#49b1f5"</span></span></code></pre>
+<h3 id="图片加载动画">图片加载动画</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Lazyload (圖片懶加載)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># https://github.com/verlok/lazyload</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">lazyload:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  post:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /img/loading1.gif</span></span></code></pre>
+<h3 id="网站背景">网站背景</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Website Background (設置網站背景)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># can set it to color or image (可設置圖片 或者 顔色)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">background:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 页脚显示和首页一样</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">footer_bg:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="鼠标聚集几何图形">鼠标聚集几何图形</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># canvas_nest</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># https://github.com/hustcc/canvas-nest.js</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">canvas_nest:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '0,0,255'</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  opacity:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0.7</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # the opacity of line (0~1), default: 0.5.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  zIndex:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -1</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # z-index property of the background, default: -1.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  count:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 199</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # the number of lines, default: 99.</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  mobile:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="鼠标点击效果">鼠标点击效果</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Mouse click effects: Heart symbol (鼠標點擊效果: 愛心)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">click_heart:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  mobile:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="页面美化">页面美化</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Default display mode (網站默認的顯示模式)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># light (default) / dark</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">display_mode:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> light</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Beautify (美化頁面顯示)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">beautify:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # post 只在文章頁生效</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # site 在全站生效</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  field:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> sist</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # site/post</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  title-prefix-icon:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '\f0c1'</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  title-prefix-icon-color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '#F47466'</span></span></code></pre>
+<h3 id="主页打字">主页打字</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># the subtitle on homepage (主頁subtitle)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">subtitle:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # Typewriter Effect (打字效果)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  effect:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # loop (循環打字)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  loop:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # source調用第三方服務</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  #source: true # 關閉調用</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">  source</span><span style="color:#032F62;--shiki-dark:#9ECBFF">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # 調用搏天api的隨機語錄（簡體）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # source: 2  調用一言網的一句話（簡體）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # source: 3  調用一句網（簡體）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # source: 4  調用今日詩詞（簡體）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # subtitle 會先顯示 source , 再顯示 sub 的內容</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  #source: false</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 如果有英文逗號' , ',請使用轉義字元 ,</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 如果有英文雙引號' " ',請使用轉義字元 "</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  # 如果關閉打字效果，subtitle只會顯示sub的第一行文字</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  sub:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span></code></pre>
+<h3 id="pwa">PWA</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-offline</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --save</span></span></code></pre>
+<h3 id="字数统计">字数统计</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-wordcount</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --save</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># wordcount (字數統計)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">wordcount:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  post_wordcount:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  min2read:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  total_wordcount:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="图片放大模式">图片放大模式</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Lightbox (圖片大圖查看模式)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># --------------------------------------</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># You can only choose one, or neither (只能選擇一個 或者 兩個都不選)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># medium-zoom</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># https://github.com/francoischalifour/medium-zoom</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">medium_zoom:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># fancybox</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># http://fancyapps.com/fancybox/3/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">fancybox:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<h3 id="弹窗">弹窗</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Snackbar (Toast Notification 彈窗)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># https://github.com/polonel/SnackBar</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># position 彈窗位置</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">snackbar:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  enable:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  position:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> bottom-left</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  bg_light:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '#ffc0cb'</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # The background color of Toast Notification in light mode</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  bg_dark:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '#121212'</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # The background color of Toast Notification in dark mode</span></span></code></pre>
+<h3 id="修改背景">修改背景</h3>
+<ol>
+<li>引入一个新的 CSS 文件</li>
+<li>使用 js 文件</li>
+</ol>
+<p>但是会在一定程度上延缓网页的加载时间，且修改复杂</p>
+<p><strong>下面使用第一种方案</strong></p>
+<ol>
+<li>\themes\hexo-theme-butterfly\source\css
+目录下新建 <strong>background.css</strong></li>
+</ol>
+<blockquote>
+<p>或者你可以在 css 目录下创建一个自己写的新文件夹如（mycss），然后在该目录下创建<strong>background.css</strong></p>
+</blockquote>
+<ol>
+<li>编辑
+butterfly 主题的背景 div 的 id 是 <strong>web_bg</strong></li>
+</ol>
+<ul>
+<li>修改为图片</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #web_bg {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   /*</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 背景图像的地址（url括号里）</span><span style="color:#005CC5;--shiki-dark:#79B8FF">  *</span><span style="color:#032F62;--shiki-dark:#9ECBFF">/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> url</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   /*</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 背景图像不重复</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> *</span><span style="color:#032F62;--shiki-dark:#9ECBFF">/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   background-repeat:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> no-repeat</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   /*</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 背景图像大小</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> *</span><span style="color:#032F62;--shiki-dark:#9ECBFF">/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   background-size:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> cover</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 关于 background 更多用法：https://developer.mozilla.org/zh-CN/docs/Web/CSS/background</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 关于 background-repeat 更多用法：https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-repeat</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 关于 background-size 更多用法：https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size</span></span></code></pre>
+<ul>
+<li>修改为渐变背景（如下几种）</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span> # 蓝红色渐变</span></span>
+<span class="line"><span> #web_bg {</span></span>
+<span class="line"><span>   /* webkit内核 5.1 - 6.0 */</span></span>
+<span class="line"><span>   background: -webkit-linear-gradient(left, red, blue);</span></span>
+<span class="line"><span>   /* Opera 11.1 - 12.0 */</span></span>
+<span class="line"><span>   background: -o-linear-gradient(right, red, blue);</span></span>
+<span class="line"><span>   /* Firefox 3.6 - 15 */</span></span>
+<span class="line"><span>   background: -moz-linear-gradient(right, red, blue);</span></span>
+<span class="line"><span>   /* 标准的语法 */</span></span>
+<span class="line"><span>   background: linear-gradient(to right, red, blue);</span></span>
+<span class="line"><span> }</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #web_bg {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> linear-gradient</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">102.7deg,#fddaff</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 8.2%,#dfadfc</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 19.6%,#adcdfc</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 36.8%,#adfcf4</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 73.2%,#caf8d0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 90.9%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 紫蓝色渐变</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #web_bg {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> linear-gradient</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">to</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> right</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> bottom,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgb</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">0,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 255,</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 240</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span><span style="color:#032F62;--shiki-dark:#9ECBFF">,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgb</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">92,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 159,</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 247</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#032F62;--shiki-dark:#9ECBFF">40%,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgb</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">211,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 34,</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 255</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#032F62;--shiki-dark:#9ECBFF">80%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 图片滤镜渐变</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #web_bg{</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background-image:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> url</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">"https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span><span style="color:#032F62;--shiki-dark:#9ECBFF">,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> linear-gradient</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">60deg,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgba</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">255,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 165,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 150,</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0.5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#032F62;--shiki-dark:#9ECBFF">5%,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgba</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">0,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 228,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 255,</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0.35</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span><span style="color:#032F62;--shiki-dark:#9ECBFF">,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> url</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">"https://ae01.alicdn.com/kf/H21b5f6b8496141a1979a33666e1074d9x.jpg"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span></code></pre>
+<blockquote>
+<p>更多的渐变网址</p>
+<p><a href="https://webgradients.com/">https://webgradients.com/</a></p>
+<p><a href="https://www.grabient.com/">https://www.grabient.com/</a></p>
+</blockquote>
+<ol>
+<li>最后将文件引入</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # Inject</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # Insert the code to head (before '&#x3C;/head>' tag) and the bottom (before '&#x3C;/body>' tag)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # 插入代码到头部 &#x3C;/head> 之前 和 底部 &#x3C;/body> 之前</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> inject:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   head:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF">link</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rel="stylesheet"</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> href="/css/mycss/background.css"</span><span style="color:#D73A49;--shiki-dark:#F97583">></span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   bottom:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">     # - &#x3C;script src="xxxx">&#x3C;/script></span></span></code></pre>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221120248.png" alt="image-20210221120247170"></p>
+<blockquote>
+<p>如果没有生效的话修改如下</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 主题配置文件</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Website Background (設置網站背景)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># can set it to color or image (可設置圖片 或者 顔色)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "#efefef"</span></span></code></pre>
+</blockquote>
+<h3 id="修改页脚">修改页脚</h3>
+<blockquote>
+<p>同样的和上面修改背景一样，新建一个css文件如我的</p>
+</blockquote>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221122105.png" alt="image-20210221122103774"></p>
+<blockquote>
+<p>下面在某博主上面看到两种样式</p>
+</blockquote>
+<ul>
+<li>渐变</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> /*</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 页脚footer</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> *</span><span style="color:#032F62;--shiki-dark:#9ECBFF">/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> /*</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 渐变色滚动动画</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> *</span><span style="color:#032F62;--shiki-dark:#9ECBFF">/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> @-webkit-keyframes</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Gradient</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     0%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     50%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 100%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     100%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> @-moz-keyframes</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Gradient</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     0%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     50%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 100%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     100%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> @keyframes</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Gradient</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     0%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     50%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 100%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     100%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">         background-position:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 50%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #footer {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> linear-gradient</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">-45deg,</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #ee7752, #ce3e75, #23a6d5, #23d5ab);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background-size:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 400%</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 400%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -webkit-animation:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Gradient</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 10s</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> ease</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> infinite</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -moz-animation:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Gradient</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 10s</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> ease</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> infinite</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     animation:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Gradient</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 10s</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> ease</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> infinite</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -o-user-select:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> none</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -ms-user-select:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> none</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -webkit-user-select:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> none</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     -moz-user-select:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> none</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     user-select:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> none</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     border-top-left-radius:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 10px</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     border-top-right-radius:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 10px</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #footer:before {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background-color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgba</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">0,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 0,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 0,</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span></code></pre>
+<ul>
+<li>半透明</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #footer {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgba</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">255,255,255,.15</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     color:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #000;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     border-top-right-radius:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 20px</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     border-top-left-radius:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 20px</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     backdrop-filter:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> saturate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">100%</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#032F62;--shiki-dark:#9ECBFF">blur</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">5px</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #footer::before {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     background:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> rgba</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">255,255,255,.15</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #footer #footer-wrap {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> var</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">--font-color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> #footer #footer-wrap a {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">     color:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> var</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">--font-color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span></code></pre>
+<blockquote>
+<p>然后引入即可</p>
+</blockquote>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221122344.png" alt="image-20210221122343300"></p>
+<h3 id="手机侧边栏默认不展开">手机侧边栏默认不展开</h3>
+<blockquote>
+<p>新建 js 文件即可，然后引入</p>
+</blockquote>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221124518.png" alt="image-20210221124517652"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221124539.png" alt="image-20210221124538405"></p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">var</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> mobile_sidebar_menus</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> document.getElementById</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">"mobile-sidebar-menus"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">var</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> menus_item_child</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> mobile_sidebar_menus.getElementsByClassName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    "menus_item_child"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">var</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> menus_expand</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> mobile_sidebar_menus.getElementsByClassName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">"menus-expand"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#6F42C1;--shiki-dark:#B392F0">var</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> =</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; </span><span style="color:#6F42C1;--shiki-dark:#B392F0">i</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> menus_item_child.length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; </span><span style="color:#6F42C1;--shiki-dark:#B392F0">i++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    menus_item_child[i].style.display</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "none"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    menus_expand[i].className</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> +=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> " menus-closed"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<h3 id="加入clustrmaps访问者地图">加入clustrmaps访问者地图</h3>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221175024.png" alt="image-20210221175020256"></p>
+<blockquote>
+<p><a href="https://clustrmaps.com/">clustrmaps.com</a></p>
+<p>注册账号或直接登录</p>
+</blockquote>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221175157.png" alt="image-20210221175156007"></p>
+<blockquote>
+<p>填写你的网址然后会看到代码，一种是JS一种是HTML的，这里我选用HTML的</p>
+</blockquote>
+<p>先在主题配置文件加入</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">card_maps:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span></span></code></pre>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221181520.png" alt="image-20210221181519652"></p>
+<p>然后在</p>
+<p>themes\hexo-theme-butterfly\layout\includes\widget</p>
+<p>路径下创建一个文件 如 <strong>card_maps.pug</strong></p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">.card-widget.card-map</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    .card-content</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        .item-headline</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            i.fa.fa-map-marker(aria-hidden</span><span style="color:#032F62;--shiki-dark:#9ECBFF">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0">"true"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            span</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> _p(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">'足迹'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    # 这里是你复制过来的代码</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    &#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">a</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> href='https://clustrmaps.com/site/1bgca'</span><span style="color:#032F62;--shiki-dark:#9ECBFF">  title='Visit tracker'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">>&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF">img</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> src='//clustrmaps.com/map_v2.png?cl=ffffff&#x26;w=300&#x26;t=tt&#x26;d=Ti7plTQaKk8zjpyoUXfK29uCDrIzNldAuvoLvSLy1bU&#x26;ct=ffffff&#x26;co=2d78ad'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/>&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF">/</span><span style="color:#24292E;--shiki-dark:#E1E4E8">a</span><span style="color:#D73A49;--shiki-dark:#F97583">></span></span></code></pre>
+<p>如图</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221181857.png" alt="image-20210221181856529"></p>
+<p>然后在 widget/ 目录下找得到 index.png 加上下面代码</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  if</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> theme.aside.card_maps</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      !</span><span style="color:#032F62;--shiki-dark:#9ECBFF">=partial</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">'includes/widget/card_maps'</span><span style="color:#6F42C1;--shiki-dark:#B392F0">,</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {},</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> {cache:theme.fragment_cache}</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p>如图</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210221182140.png" alt="image-20210221182139515"></p>
+<h3 id="添加评论">添加评论</h3>
+<ol>
+<li>首先去 leadcloud 国际版注册一个账号<a href="https://leancloud.app/">Leadcloud国际版</a> 。</li>
+<li>然后创建应用</li>
+</ol>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222103608.png" alt="image-20210222103607671"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222103806.png" alt="image-20210222103804648"></p>
+<ol>
+<li>创建class</li>
+</ol>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104008.png" alt="image-20210222104007668"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104130.png" alt="image-20210222104129170"></p>
+<ol>
+<li>找到用户栏添加用户</li>
+</ol>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104218.png" alt="image-20210222104217236"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104320.png" alt="image-20210222104319685"></p>
+<ol>
+<li>然后修改访问权限</li>
+</ol>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104638.png" alt="image-20210222104636441"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104744.png" alt="image-20210222104743842"></p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222104849.png" alt="image-20210222104848202"></p>
+<blockquote>
+<p>把 _User 的权限全部设置为指定用户但不添加，就是为了没有用户可以修改，防止别人通过 id 和 key 篡改我们用户数据</p>
+<p>即上一步添加用户就是这么个作用</p>
+<p>Leancloud的配置就告一段落了</p>
+</blockquote>
+<ol>
+<li>然后在主题配置文件中填写 Leancloud 信息</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # valine</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"> # https://valine.js.org</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0"> valine:</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   appId:</span><span style="color:#6A737D;--shiki-dark:#6A737D">  # leancloud application app id</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   appKey:</span><span style="color:#6A737D;--shiki-dark:#6A737D">  # leancloud application app key</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   pageSize:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 10</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # comment list page size</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   avatar:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> monsterid</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # gravatar style https://valine.js.org/#/avatar</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   lang:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> zh-CN</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # i18n: zh-CN/zh-TW/en/ja</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   placeholder:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> Please</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> leave</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> your</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> footprints</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # valine comment input placeholder (like: Please leave your footprints)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   guest_info:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> nick,mail</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # valine comment header info (nick/mail/link)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   recordIP:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # Record reviewer IP</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   serverURLs:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">   bg</span><span style="color:#032F62;--shiki-dark:#9ECBFF">:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # valine background</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   emojiCDN:</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # emoji CDN</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   enableQQ:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # enable the Nickname box to automatically get QQ Nickname and QQ Avatar</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   requiredFields:</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> nick,mail</span><span style="color:#6A737D;--shiki-dark:#6A737D"> # required fields (nick/mail)</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   visitor:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">   option:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span></code></pre>
+<ol>
+<li>最后不要忘记打开这个</li>
+</ol>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222165836.png" alt="image-20210222165835011"></p>
+<h3 id="文章加密">文章加密</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --save</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> hexo-blog-encrypt</span></span></code></pre>
+<p>然后在文章的头部写上，如下例子</p>
+<p><img src="https://ming-blog.oss-cn-shenzhen.aliyuncs.com/image/blog_img/20210222165511.png" alt="image-20210222165510117"></p>
+<h3 id="顶部标签页顶部图片">顶部标签页顶部图片</h3></div></div></div><aside class="right-rail" id="right-rail" aria-label="页面上下文" data-astro-cid-5kbjrbpr><div class="rail-sticky" data-astro-cid-5kbjrbpr><nav class="table-of-contents" aria-label="文章目录" data-astro-cid-p33bl5ka><div class="toc-heading" data-astro-cid-p33bl5ka><div class="toc-label" data-astro-cid-p33bl5ka><p data-astro-cid-p33bl5ka>ON THIS SIGNAL</p><span data-astro-cid-p33bl5ka>49</span></div></div><ol id="article-toc-list" role="list" data-astro-cid-p33bl5ka><li data-depth="1" data-astro-cid-p33bl5ka><a href="#个人博客搭建-hexo" data-astro-cid-p33bl5ka>个人博客搭建 Hexo</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#一创建博客" data-astro-cid-p33bl5ka>一、创建博客</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#二修改主题" data-astro-cid-p33bl5ka>二、修改主题</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#三主题美化" data-astro-cid-p33bl5ka>三、主题美化</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#标签页" data-astro-cid-p33bl5ka>标签页</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#分类页" data-astro-cid-p33bl5ka>分类页</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#代码主题和能否copy" data-astro-cid-p33bl5ka>代码主题和能否Copy</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#主页标签页等图片设置" data-astro-cid-p33bl5ka>主页标签页等图片设置</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章图片设置" data-astro-cid-p33bl5ka>文章图片设置</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章在主页展示的字数" data-astro-cid-p33bl5ka>文章在主页展示的字数</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章置顶" data-astro-cid-p33bl5ka>文章置顶</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章主页和阅读页显示" data-astro-cid-p33bl5ka>文章主页和阅读页显示</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章阅读页显示目录" data-astro-cid-p33bl5ka>文章阅读页显示目录</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#相关文章" data-astro-cid-p33bl5ka>相关文章</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章描点" data-astro-cid-p33bl5ka>文章描点</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章编辑按钮" data-astro-cid-p33bl5ka>文章编辑按钮</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章版权" data-astro-cid-p33bl5ka>文章版权</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章打赏" data-astro-cid-p33bl5ka>文章打赏</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#头像" data-astro-cid-p33bl5ka>头像</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#网站内容是否可以复制" data-astro-cid-p33bl5ka>网站内容是否可以复制</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#页脚设置" data-astro-cid-p33bl5ka>页脚设置</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#夜间模式" data-astro-cid-p33bl5ka>夜间模式</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#阅读模式" data-astro-cid-p33bl5ka>阅读模式</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#字体大小" data-astro-cid-p33bl5ka>字体大小</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#访问人数" data-astro-cid-p33bl5ka>访问人数</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#侧边栏" data-astro-cid-p33bl5ka>侧边栏</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#访问人数-1" data-astro-cid-p33bl5ka>访问人数</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#网站运行时间" data-astro-cid-p33bl5ka>网站运行时间</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#tag-hide" data-astro-cid-p33bl5ka>Tag-hide</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#评论" data-astro-cid-p33bl5ka>评论</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#搜索" data-astro-cid-p33bl5ka>搜索</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#ui颜色" data-astro-cid-p33bl5ka>UI颜色</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#图片加载动画" data-astro-cid-p33bl5ka>图片加载动画</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#网站背景" data-astro-cid-p33bl5ka>网站背景</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#鼠标聚集几何图形" data-astro-cid-p33bl5ka>鼠标聚集几何图形</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#鼠标点击效果" data-astro-cid-p33bl5ka>鼠标点击效果</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#页面美化" data-astro-cid-p33bl5ka>页面美化</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#主页打字" data-astro-cid-p33bl5ka>主页打字</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#pwa" data-astro-cid-p33bl5ka>PWA</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#字数统计" data-astro-cid-p33bl5ka>字数统计</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#图片放大模式" data-astro-cid-p33bl5ka>图片放大模式</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#弹窗" data-astro-cid-p33bl5ka>弹窗</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#修改背景" data-astro-cid-p33bl5ka>修改背景</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#修改页脚" data-astro-cid-p33bl5ka>修改页脚</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#手机侧边栏默认不展开" data-astro-cid-p33bl5ka>手机侧边栏默认不展开</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#加入clustrmaps访问者地图" data-astro-cid-p33bl5ka>加入clustrmaps访问者地图</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#添加评论" data-astro-cid-p33bl5ka>添加评论</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#文章加密" data-astro-cid-p33bl5ka>文章加密</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#顶部标签页顶部图片" data-astro-cid-p33bl5ka>顶部标签页顶部图片</a></li></ol></nav><script type="module">var e=()=>{};function t(){e();let t=new AbortController,{signal:n}=t,r=document.querySelector(`.table-of-contents`);if(!r){e=()=>t.abort();return}let i=[...r.querySelectorAll(`a[href^="#"]`)],a=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(e=>!!e),o=!1,s=0;function c(){let e=document.querySelector(`.site-header`)?.getBoundingClientRect().height??64,t=[...a].reverse().find(t=>t.getBoundingClientRect().top<=e+32)??a[0];if(t){for(let e of i)decodeURIComponent(e.hash.slice(1))===t.id?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`);o=!1}}function l(){o||(o=!0,s=requestAnimationFrame(c))}c(),window.addEventListener(`scroll`,l,{passive:!0,signal:n}),window.addEventListener(`resize`,l,{signal:n}),e=()=>{cancelAnimationFrame(s),t.abort()}}t(),document.addEventListener(`astro:page-load`,t);</script></div></aside></div></main><footer class="site-footer" data-astro-cid-nns7i3if><div class="footer-inner container" data-astro-cid-nns7i3if><p data-astro-cid-nns7i3if><span class="status" aria-hidden="true" data-astro-cid-nns7i3if></span>HUILUX · signal online</p><p data-astro-cid-nns7i3if>© 2026 · Built with <a href="https://astro.build/" data-astro-cid-nns7i3if>Astro</a></p></div></footer></body></html><script type="module">var e=()=>{},t=`a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])`;function n(){e();let n=new AbortController,{signal:r}=n,i=document.querySelector(`.blog-shell`),a=document.querySelector(`#content-drawer`),o=document.querySelector(`#right-rail`),s=i?.querySelector(`.drawer-close`),c=i?.querySelector(`.drawer-backdrop`),l=window.matchMedia(`(max-width: 52rem)`),u=window.matchMedia(`(max-width: 74rem)`),d=!1,f=!1,p;if(!i||!a){e=()=>n.abort();return}function m(){let e=!l.matches,t=!u.matches,n=e?!document.body.classList.contains(`left-collapsed`):document.body.classList.contains(`mobile-left-open`),r=t?!document.body.classList.contains(`right-collapsed`):document.body.classList.contains(`mobile-right-open`),i=!e&&document.body.classList.contains(`mobile-left-open`),c=!t&&document.body.classList.contains(`mobile-right-open`);a.setAttribute(`aria-hidden`,String(!n)),a.inert=!n,i?(a.setAttribute(`role`,`dialog`),a.setAttribute(`aria-modal`,`true`)):(a.removeAttribute(`role`),a.removeAttribute(`aria-modal`)),o&&(o.setAttribute(`aria-hidden`,String(!r)),o.inert=!r,c?(o.setAttribute(`role`,`dialog`),o.setAttribute(`aria-modal`,`true`)):(o.removeAttribute(`role`),o.removeAttribute(`aria-modal`))),document.body.style.overflow=i||c?`hidden`:``,i&&!d&&s?.focus({preventScroll:!0}),c&&!f&&o?.querySelector(`a[href^="#"]`)?.focus({preventScroll:!0}),d=i,f=c}function h(){document.body.classList.remove(`mobile-left-open`,`mobile-right-open`)}function g(){l.matches||document.body.classList.remove(`mobile-left-open`),u.matches||document.body.classList.remove(`mobile-right-open`),m()}p=new MutationObserver(m),p.observe(document.body,{attributeFilter:[`class`]}),s?.addEventListener(`click`,()=>document.body.classList.remove(`mobile-left-open`),{signal:r}),c?.addEventListener(`click`,h,{signal:r}),a.addEventListener(`click`,e=>{e.target.closest(`a`)&&document.body.classList.remove(`mobile-left-open`)},{signal:r}),document.addEventListener(`keydown`,e=>{let n=document.body.classList.contains(`mobile-left-open`),r=document.body.classList.contains(`mobile-right-open`),i=n?a:r?o:null;if(e.key===`Escape`&&i){h();return}if(e.key!==`Tab`||!i)return;let s=[...i.querySelectorAll(t)].filter(e=>e.offsetParent!==null),c=s[0],l=s.at(-1);!c||!l||(e.shiftKey&&document.activeElement===c?(e.preventDefault(),l.focus()):!e.shiftKey&&document.activeElement===l&&(e.preventDefault(),c.focus()))},{signal:r}),l.addEventListener(`change`,g,{signal:r}),u.addEventListener(`change`,g,{signal:r}),g(),e=()=>{p?.disconnect(),n.abort()}}n(),document.addEventListener(`astro:page-load`,n);</script>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title description">
+  <title id="title">HUILUX 语法信号图</title>
+  <desc id="description">蓝色信号线依次连接 Markdown、Shiki 和 KaTeX 三个节点。</desc>
+  <rect width="1200" height="600" rx="28" fill="#f3f6fa"/>
+  <path d="M130 300H1070" fill="none" stroke="#c7d0dc" stroke-width="4"/>
+  <path d="M130 300H600" fill="none" stroke="#246bfd" stroke-width="8"/>
+  <circle cx="170" cy="300" r="74" fill="#fff" stroke="#246bfd" stroke-width="6"/>
+  <circle cx="600" cy="300" r="74" fill="#fff" stroke="#246bfd" stroke-width="6"/>
+  <circle cx="1030" cy="300" r="74" fill="#fff" stroke="#246bfd" stroke-width="6"/>
+  <circle cx="170" cy="300" r="15" fill="#246bfd"/>
+  <circle cx="600" cy="300" r="15" fill="#246bfd"/>
+  <circle cx="1030" cy="300" r="15" fill="#246bfd"/>
+  <g fill="#172033" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="34" font-weight="700" text-anchor="middle">
+    <text x="170" y="430">MARKDOWN</text>
+    <text x="600" y="430">SHIKI</text>
+    <text x="1030" y="430">KATEX</text>
+  </g>
+  <g fill="#657084" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" letter-spacing="4" text-anchor="middle">
+    <text x="600" y="100">HUILUX / CONTENT SIGNAL</text>
+    <text x="600" y="525">BUILD-TIME RENDER PIPELINE</text>
+  </g>
+</svg>

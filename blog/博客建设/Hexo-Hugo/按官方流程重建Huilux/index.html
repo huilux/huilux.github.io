@@ -1,0 +1,690 @@
+<!DOCTYPE html><html data-astro-transition-scope="astro-nfpogox7-2" lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v7.1.6"><script>
+	(() => {
+		document.documentElement.classList.add('has-js');
+		const storageKey = 'huilux-theme';
+		let storedTheme = null;
+		try {
+			storedTheme = localStorage.getItem(storageKey);
+		} catch {}
+		const systemDark = window.matchMedia(
+			'(prefers-color-scheme: dark)',
+		).matches;
+		const theme =
+			storedTheme === 'light' || storedTheme === 'dark'
+				? storedTheme
+				: systemDark
+					? 'dark'
+					: 'light';
+		document.documentElement.dataset.theme = theme;
+		document.documentElement.style.colorScheme = theme;
+	})();
+</script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="swap"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.jmhnZfFy.js"></script><script type="module">var e={left:`huilux-sidebar`,right:`huilux-toc`},t=864e5,n=new Intl.NumberFormat(`zh-CN`);function r(e){return Math.max(0,Math.floor((Date.now()-e.getTime())/t))}function i(){let e=document.querySelectorAll(`[data-relative-time]`);for(let t of e){let e=t.dataset.relativeTime;if(!e)continue;let i=new Date(e);if(Number.isNaN(i.getTime()))continue;let a=r(i),o=a===0?`今天`:`${n.format(a)} 天前`;t.textContent=`${t.dataset.relativePrefix??``}${o}`}for(let e of document.querySelectorAll(`[data-freshness-note]`)){let t=Number(e.dataset.staleAfter),n=e.querySelector(`[data-relative-time]`)?.dataset.relativeTime;if(!n||!Number.isFinite(t))continue;let i=new Date(n);Number.isNaN(i.getTime())||(e.hidden=r(i)<t)}}function a(t){try{return localStorage.getItem(e[t])===`collapsed`}catch{return!1}}document.addEventListener(`astro:before-preparation`,e=>{e.to.origin===location.origin&&(document.documentElement.dataset.routeLoading=`true`,document.querySelector(`.content-pane`)?.setAttribute(`aria-busy`,`true`))}),document.addEventListener(`astro:before-swap`,e=>{let t=e.newDocument;t.documentElement.classList.add(`has-js`);let n=document.documentElement.dataset.theme;(n===`light`||n===`dark`)&&(t.documentElement.dataset.theme=n,t.documentElement.style.colorScheme=n,t.querySelector(`meta[name="theme-color"]`)?.setAttribute(`content`,n===`dark`?`#0d1218`:`#f7f9fc`)),t.body.classList.toggle(`left-collapsed`,a(`left`)),t.body.classList.toggle(`right-collapsed`,a(`right`))}),document.addEventListener(`astro:page-load`,()=>{delete document.documentElement.dataset.routeLoading,document.querySelector(`.content-pane`)?.removeAttribute(`aria-busy`),i()});</script><meta name="theme-color" content="#f7f9fc"><title>按官方流程重建 Huilux · HUILUX</title><meta name="description" content="记录如何使用 Hugo 官方命令创建项目和主题，并建立支持任意深度目录的知识博客。"><link rel="canonical" href="https://huilux.github.io/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E6%8C%89%E5%AE%98%E6%96%B9%E6%B5%81%E7%A8%8B%E9%87%8D%E5%BB%BAHuilux/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="HUILUX RSS" href="https://huilux.github.io/rss.xml"><meta property="og:type" content="article"><meta property="og:url" content="https://huilux.github.io/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E6%8C%89%E5%AE%98%E6%96%B9%E6%B5%81%E7%A8%8B%E9%87%8D%E5%BB%BAHuilux/"><meta property="og:site_name" content="HUILUX"><meta property="og:title" content="按官方流程重建 Huilux · HUILUX"><meta property="og:description" content="记录如何使用 Hugo 官方命令创建项目和主题，并建立支持任意深度目录的知识博客。"><meta name="twitter:card" content="summary"><meta property="article:published_time" content="2026-07-27T10:00:00.000Z"><meta property="article:modified_time" content="2026-07-28T06:20:57.000Z"><meta property="article:tag" content="Hugo"><meta property="article:tag" content="博客"><meta property="article:tag" content="主题开发"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"按官方流程重建 Huilux","description":"记录如何使用 Hugo 官方命令创建项目和主题，并建立支持任意深度目录的知识博客。","datePublished":"2026-07-27T10:00:00.000Z","dateModified":"2026-07-28T06:20:57.000Z","keywords":["Hugo","博客","主题开发"],"mainEntityOfPage":"https://huilux.github.io/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E6%8C%89%E5%AE%98%E6%96%B9%E6%B5%81%E7%A8%8B%E9%87%8D%E5%BB%BAHuilux/","publisher":{"@type":"Organization","name":"HUILUX"}}</script><style>@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/89758defcfa85239.woff") format("woff");font-display:swap;font-weight:400;font-style:normal;}@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/14aa8dd5744dd4bc.woff") format("woff");font-display:swap;font-weight:700;font-style:normal;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.3717%;ascent-override:80.1033%;descent-override:25.2587%;line-gap-override:0%;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial Bold";src:local("Arial Bold");font-display:swap;font-weight:700;font-style:normal;size-adjust:92.2954%;ascent-override:86.2448%;descent-override:27.1953%;line-gap-override:0%;}:root{--font-atkinson:Atkinson-c7f4c4e8b285552f,"Atkinson-c7f4c4e8b285552f fallback: Arial","Atkinson-c7f4c4e8b285552f fallback: Arial Bold",sans-serif;}</style><link rel="preload" href="/_astro/fonts/89758defcfa85239.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/_astro/fonts/14aa8dd5744dd4bc.woff" as="font" type="font/woff" crossorigin><script defer src="https://cloud.umami.is/script.js" data-website-id="076a706b-b869-4daf-a0f4-6aa04b5620fa"></script><style>.article-row[data-astro-cid-xiqpnpgl]{gap:var(--space-4);padding:var(--space-4) var(--space-2);border-radius:var(--radius-sm);transition:background var(--transition-fast);grid-template-columns:3.75rem minmax(0,1fr) auto;align-items:baseline;display:grid}.article-row[data-astro-cid-xiqpnpgl]:hover{background:var(--color-surface-subtle)}time[data-astro-cid-xiqpnpgl]{color:var(--color-ink-faint);font-family:var(--font-mono);font-size:var(--text-xs)}time[data-astro-cid-xiqpnpgl] strong[data-astro-cid-xiqpnpgl]{color:var(--color-signal-strong);font-size:var(--text-sm);display:block}.article-path[data-astro-cid-xiqpnpgl]{margin:0 0 var(--space-1);color:var(--color-ink-faint);font-family:var(--font-mono);font-size:var(--text-xs)}h3[data-astro-cid-xiqpnpgl]{font-size:var(--text-base);margin:0;font-weight:600;line-height:1.4}h3[data-astro-cid-xiqpnpgl] a[data-astro-cid-xiqpnpgl]{color:var(--color-ink);text-decoration:none}h3[data-astro-cid-xiqpnpgl] a[data-astro-cid-xiqpnpgl]:hover{color:var(--color-signal)}.article-description[data-astro-cid-xiqpnpgl]{margin:var(--space-1) 0 0;color:var(--color-ink-muted);font-size:var(--text-sm)}.article-reading-time[data-astro-cid-xiqpnpgl]{color:var(--color-ink-faint);font-family:var(--font-mono);font-size:var(--text-xs);white-space:nowrap}@media (width<=36rem){.article-row[data-astro-cid-xiqpnpgl]{grid-template-columns:3rem minmax(0,1fr)}.article-reading-time[data-astro-cid-xiqpnpgl]{display:none}}
+</style><link rel="stylesheet" href="/_astro/_..DkByDrr1.css"><link rel="stylesheet" href="/_astro/Prose.9uhroQl0.css"><link rel="stylesheet" href="/_astro/BlogShell.DkLqfGLC.css"><link rel="stylesheet" href="/_astro/BaseLayout.DG1ej1Cz.css"><style>[data-astro-transition-scope="astro-jbu3t6dv-1"] { view-transition-name: blog-content; }@layer astro { ::view-transition-old(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(blog-content) { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jbu3t6dv-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jbu3t6dv-1"] { 
+	animation-duration: 140ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-nfpogox7-2"] { view-transition-name: astro-nfpogox7-2; }@layer astro { ::view-transition-old(astro-nfpogox7-2) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-nfpogox7-2) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-nfpogox7-2) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-nfpogox7-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-nfpogox7-2"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-nfpogox7-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-nfpogox7-2"] { animation: none; mix-blend-mode: normal; }</style></head><body class="has-blog-shell"><a class="skip-link" href="#main-content">跳到主要内容</a><header class="site-header" data-astro-cid-fzpbxy5g><div class="header-start" data-astro-cid-fzpbxy5g><button class="icon-button sidebar-toggle sidebar-toggle-left" type="button" data-sidebar-toggle="left" aria-controls="content-drawer" aria-expanded="true" title="折叠或展开文件导航" data-astro-cid-fzpbxy5g><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-fzpbxy5g><path d="M3 4.5h14v11H3zM8 4.5v11" data-astro-cid-fzpbxy5g></path></svg><span class="visually-hidden" data-astro-cid-fzpbxy5g>切换文件导航</span></button><a class="wordmark" href="/" aria-label="HUILUX 首页" data-astro-cid-fzpbxy5g><span class="signal-dot" aria-hidden="true" data-astro-cid-fzpbxy5g></span><span data-astro-cid-fzpbxy5g>HUI<span class="wordmark-cut" data-astro-cid-fzpbxy5g>/</span>LUX</span></a></div><nav class="desktop-navigation" aria-label="主导航" data-astro-cid-fzpbxy5g><ul role="list" data-astro-cid-fzpbxy5g><li data-astro-cid-fzpbxy5g><a href="/" data-astro-cid-fzpbxy5g>首页</a></li><li data-astro-cid-fzpbxy5g><a href="/blog/" aria-current="page" data-astro-cid-fzpbxy5g>文章</a></li><li data-astro-cid-fzpbxy5g><a href="/tags/" data-astro-cid-fzpbxy5g>标签</a></li><li data-astro-cid-fzpbxy5g><a href="/search/" data-astro-cid-fzpbxy5g>搜索</a></li><li data-astro-cid-fzpbxy5g><a href="/about/" data-astro-cid-fzpbxy5g>关于</a></li></ul></nav><div class="header-actions" data-astro-cid-fzpbxy5g><button class="theme-toggle" type="button" aria-label="切换深色主题" aria-pressed="false" title="切换深色主题" data-astro-cid-l6lhmie6><svg class="sun" aria-hidden="true" viewBox="0 0 24 24" data-astro-cid-l6lhmie6><circle cx="12" cy="12" r="3.5" data-astro-cid-l6lhmie6></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" data-astro-cid-l6lhmie6></path></svg><svg class="moon" aria-hidden="true" viewBox="0 0 24 24" data-astro-cid-l6lhmie6><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8a8.5 8.5 0 1 0 11.4 11.4Z" data-astro-cid-l6lhmie6></path></svg><span class="visually-hidden" data-astro-cid-l6lhmie6>切换颜色主题</span></button><script type="module">var e=()=>{};function t(){e();let t=new AbortController,n=document.querySelector(`.theme-toggle`);if(!n){e=()=>t.abort();return}function r(e,t=!0){document.documentElement.dataset.theme=e,document.documentElement.style.colorScheme=e,n.setAttribute(`aria-pressed`,String(e===`dark`));let r=e===`dark`?`切换浅色主题`:`切换深色主题`;if(n.setAttribute(`aria-label`,r),n.setAttribute(`title`,r),document.querySelector(`meta[name="theme-color"]`)?.setAttribute(`content`,e===`dark`?`#0d1218`:`#f7f9fc`),t)try{localStorage.setItem(`huilux-theme`,e)}catch{}}r(document.documentElement.dataset.theme===`dark`?`dark`:`light`,!1),n.addEventListener(`click`,()=>{r(document.documentElement.dataset.theme===`dark`?`light`:`dark`)},{signal:t.signal}),e=()=>t.abort()}t(),document.addEventListener(`astro:page-load`,t);</script><button class="icon-button sidebar-toggle sidebar-toggle-right" type="button" data-sidebar-toggle="right" aria-controls="right-rail" aria-expanded="true" title="折叠或展开本页目录" data-astro-cid-fzpbxy5g><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-fzpbxy5g><path d="M5 6h1.5M11 6h5M5 10h1.5M11 10h5M5 14h1.5M11 14h5" data-astro-cid-fzpbxy5g></path></svg><span class="visually-hidden" data-astro-cid-fzpbxy5g>切换本页目录</span></button><details class="mobile-navigation" data-astro-cid-fzpbxy5g><summary role="button" aria-expanded="false" aria-controls="mobile-menu" data-astro-cid-fzpbxy5g><span class="visually-hidden" data-navigation-label data-astro-cid-fzpbxy5g>打开主导航</span><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-fzpbxy5g><path d="M3 5h14M3 10h14M3 15h14" data-astro-cid-fzpbxy5g></path></svg></summary><nav id="mobile-menu" class="mobile-menu" aria-label="移动端主导航" data-astro-cid-fzpbxy5g><ul role="list" data-astro-cid-fzpbxy5g><li data-astro-cid-fzpbxy5g><a href="/" data-astro-cid-fzpbxy5g>首页</a></li><li data-astro-cid-fzpbxy5g><a href="/blog/" aria-current="page" data-astro-cid-fzpbxy5g>文章</a></li><li data-astro-cid-fzpbxy5g><a href="/tags/" data-astro-cid-fzpbxy5g>标签</a></li><li data-astro-cid-fzpbxy5g><a href="/search/" data-astro-cid-fzpbxy5g>搜索</a></li><li data-astro-cid-fzpbxy5g><a href="/about/" data-astro-cid-fzpbxy5g>关于</a></li></ul></nav></details></div></header><script type="module">var e={left:`huilux-sidebar`,right:`huilux-toc`},t=()=>{};function n(t){try{return localStorage.getItem(e[t])===`collapsed`}catch{return!1}}function r(){t();let r=new AbortController,{signal:i}=r,a=document.body,o=document.querySelector(`[data-sidebar-toggle="left"]`),s=document.querySelector(`[data-sidebar-toggle="right"]`),c=window.matchMedia(`(max-width: 52rem)`),l=window.matchMedia(`(max-width: 74rem)`),u=document.querySelector(`.mobile-navigation`),d=u?.querySelector(`summary`),f=u?.querySelector(`[data-navigation-label]`),p;if(!o){t=()=>r.abort();return}function m(e){return e===`left`?c.matches:l.matches}function h(e){return m(e)?a.classList.contains(`mobile-${e}-open`):!a.classList.contains(`${e}-collapsed`)}function g(){for(let e of[`left`,`right`]){let t=e===`left`?o:s,n=e===`left`?`文件导航`:`本页目录`,r=h(e);t?.setAttribute(`aria-expanded`,String(r));let i=r?`折叠${n}`:`展开${n}`;t?.setAttribute(`title`,i),t?.setAttribute(`aria-label`,i)}}function _(t,n,r=!0){if(a.classList.toggle(`${t}-collapsed`,n),r)try{localStorage.setItem(e[t],n?`collapsed`:`expanded`)}catch{}g()}function v(e){a.classList.toggle(`mobile-${e}-open`),g()}_(`left`,n(`left`),!1),_(`right`,n(`right`),!1),g(),p=new MutationObserver(g),p.observe(a,{attributeFilter:[`class`]}),o.addEventListener(`click`,()=>{c.matches?v(`left`):_(`left`,!a.classList.contains(`left-collapsed`))},{signal:i}),s?.addEventListener(`click`,()=>{l.matches?v(`right`):_(`right`,!a.classList.contains(`right-collapsed`))},{signal:i}),c.addEventListener(`change`,g,{signal:i}),l.addEventListener(`change`,g,{signal:i}),u?.addEventListener(`toggle`,()=>{d?.setAttribute(`aria-expanded`,String(u.open)),f&&(f.textContent=u.open?`关闭主导航`:`打开主导航`)},{signal:i}),document.addEventListener(`keydown`,e=>{e.key!==`Escape`||!u?.open||(u.open=!1,d?.focus())},{signal:i}),document.addEventListener(`pointerdown`,e=>{!u?.open||u.contains(e.target)||(u.open=!1)},{signal:i}),t=()=>{p?.disconnect(),r.abort()}}r(),document.addEventListener(`astro:page-load`,r);</script><main id="main-content"><div class="blog-shell container" data-has-toc="true" data-astro-cid-5kbjrbpr><div class="drawer-backdrop" aria-hidden="true" data-astro-cid-5kbjrbpr></div><aside data-astro-transition-persist="huilux-file-tree-rail" class="left-rail" id="content-drawer" aria-label="内容目录" data-astro-cid-5kbjrbpr><div class="rail-sticky" data-astro-cid-5kbjrbpr><div class="rail-toolbar" data-astro-cid-5kbjrbpr><span class="toolbar-label" data-astro-cid-5kbjrbpr>NAV</span><button class="drawer-close" type="button" aria-label="关闭文件导航" data-astro-cid-5kbjrbpr><svg aria-hidden="true" viewBox="0 0 20 20" data-astro-cid-5kbjrbpr><path d="m5 5 10 10M15 5 5 15" data-astro-cid-5kbjrbpr></path></svg></button></div><div class="left-rail-content" id="sidebar-content" data-astro-cid-5kbjrbpr><nav class="file-tree file-tree--rail" data-file-tree aria-label="文章目录树"><div class="tree-heading"><p>CONTENT MAP</p><span>18 FILES</span></div><div class="tree-search tree-enhancement"><svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="4.75"></circle><path d="m12 12 4 4"></path></svg><label class="visually-hidden" for="file-tree-search">搜索文章</label><input id="file-tree-search" type="search" placeholder="搜索文章或目录…" autocomplete="off" spellcheck="false" aria-keyshortcuts="/" data-tree-search><button class="tree-search-clear" type="button" aria-label="清除文章筛选" title="清除文章筛选" hidden data-tree-search-clear><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8"></path></svg></button></div><div class="tree-utility tree-enhancement"><span class="tree-status" role="status" aria-live="polite" data-tree-status>18 篇文章</span><div class="tree-actions" aria-label="文件树操作"><button type="button" data-tree-expand-all>展开</button><span aria-hidden="true">/</span><button type="button" data-tree-collapse-all>折叠</button></div></div><ul class="tree-level tree-root"><li class="tree-folder" data-tree-folder data-folder-slug="博客建设" data-expanded="true"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE" aria-expanded="true" aria-label="折叠博客建设" title="折叠博客建设" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" title="博客建设" data-tree-link><span class="folder-name">博客建设</span></a><span class="item-count" aria-label="8 篇文章">8</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE" class="tree-level" data-tree-group><li class="tree-folder" data-tree-folder data-folder-slug="博客建设/Hexo-Hugo" data-expanded="true"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FHexo-Hugo" aria-expanded="true" aria-label="折叠Hexo&amp;Hugo" title="折叠Hexo&amp;Hugo" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/" title="Hexo&amp;Hugo" data-tree-link><span class="folder-name">Hexo&amp;Hugo</span></a><span class="item-count" aria-label="3 篇文章">3</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FHexo-Hugo" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E6%8C%89%E5%AE%98%E6%96%B9%E6%B5%81%E7%A8%8B%E9%87%8D%E5%BB%BAHuilux/" title="按官方流程重建 Huilux" aria-current="page" data-tree-link data-tree-article data-search-text="博客建设 Hexo&amp;Hugo 按官方流程重建 Huilux 博客建设/Hexo-Hugo/按官方流程重建Huilux"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>按官方流程重建 Huilux</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/%E4%BB%8EHexo%E5%88%B0Hugo/" title="从 Hexo 迁移到 Hugo" data-tree-link data-tree-article data-search-text="博客建设 Hexo&amp;Hugo 从 Hexo 迁移到 Hugo 博客建设/Hexo-Hugo/从Hexo到Hugo"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>从 Hexo 迁移到 Hugo</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="Hexo &amp; butterfly" data-tree-link data-tree-article data-search-text="博客建设 Hexo&amp;Hugo Hexo &amp; butterfly 博客建设/Hexo-Hugo/Hexo博客搭建记录"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Hexo &amp; butterfly</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="博客建设/Markdown与写作" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FMarkdown%E4%B8%8E%E5%86%99%E4%BD%9C" aria-expanded="false" aria-label="展开Markdown与写作" title="展开Markdown与写作" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/" title="Markdown与写作" data-tree-link><span class="folder-name">Markdown与写作</span></a><span class="item-count" aria-label="3 篇文章">3</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2FMarkdown%E4%B8%8E%E5%86%99%E4%BD%9C" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/%E5%86%99%E6%96%87%E7%AB%A0%E7%94%A8%E5%88%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="写文章用到的语法" data-tree-link data-tree-article data-search-text="博客建设 Markdown与写作 写文章用到的语法 博客建设/Markdown与写作/写文章用到的语法"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>写文章用到的语法</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/%E7%94%A8VsCode%E4%BC%98%E9%9B%85%E5%86%99MarkDown/" title="用 VsCode 优雅写 MarkDown" data-tree-link data-tree-article data-search-text="博客建设 Markdown与写作 用 VsCode 优雅写 MarkDown 博客建设/Markdown与写作/用VsCode优雅写MarkDown"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>用 VsCode 优雅写 MarkDown</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Markdown%E4%B8%8E%E5%86%99%E4%BD%9C/Astro%20Markdown%E8%AF%AD%E6%B3%95%E9%AA%8C%E6%94%B6/" title="Astro Markdown 语法验收" data-tree-link data-tree-article data-search-text="博客建设 Markdown与写作 Astro Markdown 语法验收 博客建设/Markdown与写作/Astro Markdown语法验收"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Astro Markdown 语法验收</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="博客建设/部署与统计" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2F%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1" aria-expanded="false" aria-label="展开部署与统计" title="展开部署与统计" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1/" title="部署与统计" data-tree-link><span class="folder-name">部署与统计</span></a><span class="item-count" aria-label="2 篇文章">2</span></div><ul id="tree-group-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%2F%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="部署博客到服务器" data-tree-link data-tree-article data-search-text="博客建设 部署与统计 部署博客到服务器 博客建设/部署与统计/博客部署服务器"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>部署博客到服务器</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%9F%E8%AE%A1/GitHubPages%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" title="用 GitHub Actions 把 Astro 博客发布到 GitHub Pages" data-tree-link data-tree-article data-search-text="博客建设 部署与统计 用 GitHub Actions 把 Astro 博客发布到 GitHub Pages 博客建设/部署与统计/GitHubPages自动发布"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>用 GitHub Actions 把 Astro 博客发布到 GitHub Pages</span></a></li></ul></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="Linux" data-expanded="true"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux" aria-expanded="true" aria-label="折叠Linux" title="折叠Linux" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/" title="Linux" data-tree-link><span class="folder-name">Linux</span></a><span class="item-count" aria-label="10 篇文章">10</span></div><ul id="tree-group-Linux" class="tree-level" data-tree-group><li class="tree-folder" data-tree-folder data-folder-slug="Linux/ArchLinux" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux%2FArchLinux" aria-expanded="false" aria-label="展开ArchLinux" title="展开ArchLinux" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/ArchLinux/" title="ArchLinux" data-tree-link><span class="folder-name">ArchLinux</span></a><span class="item-count" aria-label="5 篇文章">5</span></div><ul id="tree-group-Linux%2FArchLinux" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/Arch%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" title="Arch系统配置" data-tree-link data-tree-article data-search-text="Linux ArchLinux Arch系统配置 Linux/ArchLinux/Arch系统配置"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Arch系统配置</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux-Typora-Picgo/" title="ArchLinux-Typora-Picgo" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux-Typora-Picgo Linux/ArchLinux/ArchLinux-Typora-Picgo"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux-Typora-Picgo</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux%E8%A7%A6%E6%91%B8%E6%9D%BF/" title="ArchLinux触摸板" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux触摸板 Linux/ArchLinux/ArchLinux触摸板"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux触摸板</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux%E5%A4%96%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%99%A8/" title="ArchLinux外接显示器" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux外接显示器 Linux/ArchLinux/ArchLinux外接显示器"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux外接显示器</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/ArchLinux/ArchLinux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" title="ArchLinux系统安装" data-tree-link data-tree-article data-search-text="Linux ArchLinux ArchLinux系统安装 Linux/ArchLinux/ArchLinux系统安装"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>ArchLinux系统安装</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="Linux/文件与存储" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux%2F%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8" aria-expanded="false" aria-label="展开文件与存储" title="展开文件与存储" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/" title="文件与存储" data-tree-link><span class="folder-name">文件与存储</span></a><span class="item-count" aria-label="4 篇文章">4</span></div><ul id="tree-group-Linux%2F%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/Btrfs%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/" title="Btrfs故障排查" data-tree-link data-tree-article data-search-text="Linux 文件与存储 Btrfs故障排查 Linux/文件与存储/Btrfs故障排查"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Btrfs故障排查</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/Btrfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%8B%93%E5%B1%95%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" title="Btrfs文件系统拓展磁盘空间" data-tree-link data-tree-article data-search-text="Linux 文件与存储 Btrfs文件系统拓展磁盘空间 Linux/文件与存储/Btrfs文件系统拓展磁盘空间"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Btrfs文件系统拓展磁盘空间</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/Linux%E6%8C%82%E8%BD%BDExt4%E5%88%86%E5%8C%BA%E9%94%99%E8%AF%AF/" title="Linux挂载Ext4分区错误" data-tree-link data-tree-article data-search-text="Linux 文件与存储 Linux挂载Ext4分区错误 Linux/文件与存储/Linux挂载Ext4分区错误"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Linux挂载Ext4分区错误</span></a></li><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%AD%98%E5%82%A8/SSD%E7%8A%B6%E6%80%81%E8%AE%B0%E5%BD%95/" title="SSD状态记录" data-tree-link data-tree-article data-search-text="Linux 文件与存储 SSD状态记录 Linux/文件与存储/SSD状态记录"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>SSD状态记录</span></a></li></ul></li><li class="tree-folder" data-tree-folder data-folder-slug="Linux/桌面与窗口" data-expanded="false"><div class="tree-row tree-folder-row"><button class="folder-toggle" type="button" aria-controls="tree-group-Linux%2F%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3" aria-expanded="false" aria-label="展开桌面与窗口" title="展开桌面与窗口" data-folder-toggle><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"></path></svg></button><a class="folder-link" href="/blog/Linux/%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3/" title="桌面与窗口" data-tree-link><span class="folder-name">桌面与窗口</span></a><span class="item-count" aria-label="1 篇文章">1</span></div><ul id="tree-group-Linux%2F%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3" class="tree-level" data-tree-group><li class="tree-article" data-tree-article-item><a href="/blog/Linux/%E6%A1%8C%E9%9D%A2%E4%B8%8E%E7%AA%97%E5%8F%A3/Wallpaper%20Engine%20%E5%A3%81%E7%BA%B8%E6%8F%90%E5%8F%96/" title="Wallpaper Engine 壁纸提取" data-tree-link data-tree-article data-search-text="Linux 桌面与窗口 Wallpaper Engine 壁纸提取 Linux/桌面与窗口/Wallpaper Engine 壁纸提取"><svg class="file-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z"></path><path d="M9.5 1.5v3h3"></path></svg><span>Wallpaper Engine 壁纸提取</span></a></li></ul></li></ul></li></ul><p class="tree-empty" hidden data-tree-empty>没有匹配的文章</p></nav><script type="module" src="/_astro/FileTree.astro_astro_type_script_index_0_lang.DqM_1WgQ.js"></script></div></div></aside><div data-astro-transition-scope="astro-jbu3t6dv-1" class="content-pane" data-astro-cid-5kbjrbpr><div class="route-content" data-astro-cid-jo55ryrt><nav class="breadcrumbs" aria-label="面包屑" data-astro-cid-est43gev><a href="/blog/" data-astro-cid-est43gev>文章</a><span aria-hidden="true" data-astro-cid-est43gev>/</span><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" data-astro-cid-est43gev>博客建设</a><span aria-hidden="true" data-astro-cid-est43gev>/</span><a href="/blog/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/Hexo-Hugo/" data-astro-cid-est43gev>Hexo-Hugo</a></nav><header class="article-header" data-astro-cid-est43gev><p class="eyebrow" data-astro-cid-est43gev>博客建设.HEXO-HUGO / 2026.07.27</p><h1 data-astro-cid-est43gev>按官方流程重建 Huilux</h1><p class="description" data-astro-cid-est43gev>记录如何使用 Hugo 官方命令创建项目和主题，并建立支持任意深度目录的知识博客。</p><div class="article-meta" data-astro-cid-est43gev><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>发布</span><time datetime="2026-07-27T10:00:00.000Z" data-astro-cid-est43gev>2026/07/27</time><span class="relative-age" data-relative-time="2026-07-27T10:00:00.000Z" data-relative-prefix="· " data-astro-cid-est43gev>· 28 天前</span></span><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>更新</span><time datetime="2026-07-28T06:20:57.000Z" data-astro-cid-est43gev>2026/07/28</time><span class="relative-age" data-relative-time="2026-07-28T06:20:57.000Z" data-relative-prefix="· " data-astro-cid-est43gev>· 28 天前</span></span><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>阅读</span>约 17 分钟</span><span data-astro-cid-est43gev><span class="meta-label" data-astro-cid-est43gev>字数</span>5,751 字</span></div><ul class="tag-list" role="list" aria-label="文章标签" data-astro-cid-est43gev><li data-astro-cid-est43gev><a href="/tags/Hugo/" data-astro-cid-est43gev>#Hugo</a></li><li data-astro-cid-est43gev><a href="/tags/%E5%8D%9A%E5%AE%A2/" data-astro-cid-est43gev>#博客</a></li><li data-astro-cid-est43gev><a href="/tags/%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91/" data-astro-cid-est43gev>#主题开发</a></li></ul><aside class="freshness-note" aria-label="内容时效提示" data-freshness-note data-stale-after="365" hidden data-astro-cid-est43gev><strong data-astro-cid-est43gev>内容时效</strong><p data-astro-cid-est43gev>本文最后维护于<time datetime="2026-07-28T06:20:57.000Z" data-relative-time="2026-07-28T06:20:57.000Z" data-astro-cid-est43gev>28 天前</time>，部分技术细节可能已经变化，请结合当前版本和官方文档核对。</p></aside></header><div class="prose"><p>这篇文章记录 Huilux 当前版本的实际创建过程。项目使用 Hugo 官方生成器，本地主题名为 <code>huilux-tree</code>。网站渲染不依赖 Node.js、远程字体或第三方前端框架；主题中的 Node.js 依赖只用于开发期的代码格式化和 Git 提交检查。</p>
+<h2 id="确认-hugo-版本">确认 Hugo 版本</h2>
+<p>首先确认本机安装的是 Hugo Extended：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> version</span></span></code></pre>
+<p>本站创建时使用：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>hugo v0.164.0+extended</span></span></code></pre>
+<h2 id="使用官方命令创建项目">使用官方命令创建项目</h2>
+<p>Hugo 当前的项目创建命令是 <code>hugo new project</code>；旧的 <code>hugo new site</code> 仍然是它的兼容别名。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /home/ming/blog</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> new</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> project</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> huilux</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --format</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> toml</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> huilux</span></span></code></pre>
+<p>生成的基础结构包括：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>huilux/</span></span>
+<span class="line"><span>├── archetypes/</span></span>
+<span class="line"><span>├── assets/</span></span>
+<span class="line"><span>├── content/</span></span>
+<span class="line"><span>├── data/</span></span>
+<span class="line"><span>├── i18n/</span></span>
+<span class="line"><span>├── layouts/</span></span>
+<span class="line"><span>├── static/</span></span>
+<span class="line"><span>├── themes/</span></span>
+<span class="line"><span>└── hugo.toml</span></span></code></pre>
+<h2 id="创建本地主题">创建本地主题</h2>
+<p>在项目根目录执行：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> new</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> theme</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> huilux-tree</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --format</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> toml</span></span></code></pre>
+<p>然后在站点的 <code>hugo.toml</code> 中启用：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="toml"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">theme = </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"huilux-tree"</span></span></code></pre>
+<p>所有布局、样式、脚本和短代码都放在 <code>themes/huilux-tree/</code> 中；站点根目录只保存内容和站点配置，因此主题可以独立维护或复用。</p>
+<h2 id="站点与主题是两层项目">站点与主题是两层项目</h2>
+<p>理解目录前，先区分两个容易混淆的 <code>hugo.toml</code> 和两层职责：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>huilux/                         # 站点项目：保存内容和站点配置</span></span>
+<span class="line"><span>├── hugo.toml                   # 启用主题、菜单、Markdown、参数等</span></span>
+<span class="line"><span>├── content/                    # 博客文章与栏目</span></span>
+<span class="line"><span>├── static/                     # 站点自己的静态文件</span></span>
+<span class="line"><span>├── public/                     # Hugo 构建结果</span></span>
+<span class="line"><span>└── themes/</span></span>
+<span class="line"><span>    └── huilux-tree/            # 主题项目：决定页面如何显示和交互</span></span>
+<span class="line"><span>        ├── hugo.toml           # 只声明主题要求的 Hugo 版本</span></span>
+<span class="line"><span>        ├── layouts/            # HTML 模板</span></span>
+<span class="line"><span>        ├── assets/             # 经过 Hugo Pipes 处理的 CSS 和 JavaScript</span></span>
+<span class="line"><span>        └── static/             # 主题直接提供的 favicon</span></span></code></pre>
+<p>站点根目录的 <code>hugo.toml</code> 是网站的实际配置入口，其中 <code>theme = "huilux-tree"</code> 把两层连接起来。主题自己的 <code>hugo.toml</code> 不是第二份站点配置，它只声明主题要求 Hugo Extended 且最低版本为 <code>0.164.0</code>。</p>
+<p>Hugo 会合并站点和主题中名称相同的目录，站点文件优先。例如：</p>
+<ul>
+<li><code>layouts/page.html</code> 若出现在站点根目录，会覆盖主题的同名文章模板；</li>
+<li><code>assets/css/main.css</code> 若出现在站点根目录，会成为 Hugo 资源查找时优先命中的文件；</li>
+<li><code>static/favicon.svg</code> 若出现在站点根目录，会覆盖主题提供的 favicon；</li>
+<li><code>content/</code> 属于站点本身，主题不保存实际文章。</li>
+</ul>
+<p>因此，小范围定制可以放在站点根目录覆盖主题；希望所有使用者都获得的能力，则应该修改 <code>themes/huilux-tree/</code>。</p>
+<h2 id="主题完整目录">主题完整目录</h2>
+<p>下面是 <code>themes/huilux-tree/</code> 当前有意义的完整结构。<code>.git/</code> 和 <code>node_modules/</code> 内部包含大量由工具管理的文件，因此只展示目录本身：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>themes/huilux-tree/</span></span>
+<span class="line"><span>├── .git/                              # 主题自己的 Git 仓库数据</span></span>
+<span class="line"><span>├── .gitignore                         # Git 忽略规则</span></span>
+<span class="line"><span>├── .hugo_build.lock                   # Hugo 运行时生成的构建锁</span></span>
+<span class="line"><span>├── .prettierignore                    # Prettier 忽略规则</span></span>
+<span class="line"><span>├── .prettierrc.json                    # Prettier 格式化配置</span></span>
+<span class="line"><span>├── README.md                           # 主题开发说明</span></span>
+<span class="line"><span>├── hugo.toml                           # 主题元数据与 Hugo 版本要求</span></span>
+<span class="line"><span>├── package.json                        # 格式化工具和 Git hook 配置</span></span>
+<span class="line"><span>├── package-lock.json                   # Node.js 开发依赖锁文件</span></span>
+<span class="line"><span>├── archetypes/</span></span>
+<span class="line"><span>│   └── default.md                      # 新文章的默认 Front Matter</span></span>
+<span class="line"><span>├── assets/</span></span>
+<span class="line"><span>│   ├── css/</span></span>
+<span class="line"><span>│   │   ├── chroma.css                  # Chroma 亮色、暗色语法高亮</span></span>
+<span class="line"><span>│   │   └── main.css                    # 主题全部布局与组件样式</span></span>
+<span class="line"><span>│   └── js/</span></span>
+<span class="line"><span>│       └── main.js                     # 主题全部浏览器交互</span></span>
+<span class="line"><span>├── layouts/</span></span>
+<span class="line"><span>│   ├── 404.html                        # 404 页面</span></span>
+<span class="line"><span>│   ├── baseof.html                     # 所有页面共用的 HTML 骨架</span></span>
+<span class="line"><span>│   ├── home.html                       # 首页</span></span>
+<span class="line"><span>│   ├── page.html                       # 普通文章页</span></span>
+<span class="line"><span>│   ├── section.html                    # 栏目与目录页</span></span>
+<span class="line"><span>│   ├── taxonomy.html                   # 标签总览页</span></span>
+<span class="line"><span>│   ├── term.html                       # 单个标签的文章列表页</span></span>
+<span class="line"><span>│   ├── _markup/</span></span>
+<span class="line"><span>│   │   └── render-codeblock.html       # Markdown 围栏代码块渲染钩子</span></span>
+<span class="line"><span>│   ├── _partials/</span></span>
+<span class="line"><span>│   │   ├── breadcrumbs.html            # 面包屑</span></span>
+<span class="line"><span>│   │   ├── footer.html                 # 页脚</span></span>
+<span class="line"><span>│   │   ├── head.html                   # head 元数据与资源入口</span></span>
+<span class="line"><span>│   │   ├── header.html                 # 顶栏</span></span>
+<span class="line"><span>│   │   ├── terms.html                  # 文章标签</span></span>
+<span class="line"><span>│   │   ├── cards/</span></span>
+<span class="line"><span>│   │   │   ├── article-row.html        # 文章列表行</span></span>
+<span class="line"><span>│   │   │   └── directory.html          # 目录卡片</span></span>
+<span class="line"><span>│   │   ├── functions/</span></span>
+<span class="line"><span>│   │   │   └── page-groups.html        # 页面分组与排序函数</span></span>
+<span class="line"><span>│   │   ├── head/</span></span>
+<span class="line"><span>│   │   │   ├── css.html                # CSS 资源管线</span></span>
+<span class="line"><span>│   │   │   └── js.html                 # JavaScript 资源管线</span></span>
+<span class="line"><span>│   │   ├── sidebar/</span></span>
+<span class="line"><span>│   │   │   ├── left.html               # 左侧知识树入口</span></span>
+<span class="line"><span>│   │   │   └── right.html              # 右侧文章目录</span></span>
+<span class="line"><span>│   │   └── tree/</span></span>
+<span class="line"><span>│   │       ├── file.html                # 知识树的文章节点</span></span>
+<span class="line"><span>│   │       └── folder.html              # 知识树的递归目录节点</span></span>
+<span class="line"><span>│   └── _shortcodes/</span></span>
+<span class="line"><span>│       ├── admonition.html              # 提示框兼容短代码</span></span>
+<span class="line"><span>│       └── typeit.html                  # TypeIt 兼容短代码</span></span>
+<span class="line"><span>├── node_modules/                        # npm 安装的开发工具，不参与网站运行</span></span>
+<span class="line"><span>└── static/</span></span>
+<span class="line"><span>    ├── favicon.ico                      # 旧浏览器 favicon</span></span>
+<span class="line"><span>    └── favicon.svg                      # 现代浏览器 favicon</span></span></code></pre>
+<p><code>_markup</code>、<code>_partials</code>、<code>_shortcodes</code> 这些以下划线开头的目录具有 Hugo 约定的特殊含义，它们是模板组件或扩展点，不会自己生成同名页面。</p>
+<h2 id="根目录文件与开发工具">根目录文件与开发工具</h2>
+<h3 id="readmemd"><code>README.md</code></h3>
+<p>主题的开发入口文档，记录最低 Hugo 版本、格式检查命令、完整站点构建命令，以及重新生成 Chroma 样式的方法。它面向维护主题的人，不会进入最终网站。</p>
+<h3 id="hugotoml"><code>hugo.toml</code></h3>
+<p>主题模块描述文件，目前只有：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="toml"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#6F42C1;--shiki-dark:#B392F0">module</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#6F42C1;--shiki-dark:#B392F0">module</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">hugoVersion</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">extended = </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">min = </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'0.164.0'</span></span></code></pre>
+<p>它表达两个约束：主题最低支持 Hugo <code>0.164.0</code>，并需要 Extended 版本。Extended 在这里主要用于保证 Hugo 的完整资源处理能力。站点标题、菜单、主题参数等仍由站点根目录的 <code>hugo.toml</code> 决定。</p>
+<h3 id="packagejson"><code>package.json</code></h3>
+<p>Node.js 只承担主题源码维护工作，没有参与浏览器运行，也没有打包网站：</p>
+<ul>
+<li><code>prettier</code> 统一格式化 Markdown、CSS、JavaScript、JSON 等文件；</li>
+<li><code>prettier-plugin-go-template</code> 让 Prettier 理解 Hugo 的 Go Template 语法；</li>
+<li><code>prettier-plugin-toml</code> 负责 TOML；</li>
+<li><code>pretty-quick</code> 只检查 Git 暂存区中的文件；</li>
+<li><code>simple-git-hooks</code> 安装 <code>pre-commit</code> hook，在提交前执行 <code>npm run format:staged</code>；</li>
+<li><code>npm run format</code> 写入格式化结果，<code>npm run format:check</code> 只检查而不修改。</li>
+</ul>
+<p>Hugo 自己完成 CSS、JavaScript 的拼接、压缩和指纹计算，所以这里不需要 Vite、Webpack 或其他前端构建器。</p>
+<h3 id="package-lockjson"><code>package-lock.json</code></h3>
+<p>锁定所有直接、间接 npm 开发依赖的精确版本与完整性哈希，使不同机器上的 <code>npm install</code> 得到相同工具链。它应随 <code>package.json</code> 一起提交，并由 npm 更新，不应手工编辑。</p>
+<h3 id="prettierrcjson"><code>.prettierrc.json</code></h3>
+<p>Prettier 的具体规则：</p>
+<ul>
+<li>加载 Go Template 和 TOML 插件；</li>
+<li>行宽为 100；</li>
+<li>Markdown 保持原有换行；</li>
+<li>JavaScript 等使用单引号；</li>
+<li><code>*.html</code> 强制使用 <code>go-template</code> 解析器，避免把 <code>{{ ... }}</code> 当成普通 HTML。</li>
+</ul>
+<h3 id="prettierignore"><code>.prettierignore</code></h3>
+<p>排除不适合格式化的内容：</p>
+<ul>
+<li><code>node_modules/</code>：第三方依赖；</li>
+<li><code>public/</code>：Hugo 构建结果；</li>
+<li><code>resources/_gen/</code>：Hugo 资源缓存；</li>
+<li><code>assets/css/chroma.css</code>：由 Hugo 命令生成的 CSS；</li>
+<li><code>static/favicon.ico</code>：二进制图标。</li>
+</ul>
+<h3 id="gitignore"><code>.gitignore</code></h3>
+<p>忽略 <code>.hugo_build.lock</code>、<code>node_modules/</code>、<code>public/</code> 和 <code>resources/_gen/</code>。这些内容都能由 Hugo 或 npm 重新生成，不属于主题手写源码。</p>
+<h3 id="git"><code>.git/</code></h3>
+<p>保存主题自己的提交历史、分支、索引和 hook。它说明 <code>huilux-tree</code> 可以作为一个独立 Git 仓库维护。这里的内容由 Git 管理，不应手工修改，也不属于 Hugo 主题源码。</p>
+<h3 id="hugo_buildlock"><code>.hugo_build.lock</code></h3>
+<p>Hugo 启动构建或开发服务器时使用的临时锁文件，用来协调构建过程。当前文件为空是正常现象；它已经被 <code>.gitignore</code> 排除，不需要维护。</p>
+<h3 id="node_modules"><code>node_modules/</code></h3>
+<p><code>npm install</code> 生成的本地开发依赖目录。当前内容只服务于 Prettier 和 Git hook，网站打开时不会下载或执行这里的包。删除后可以用 <code>npm install</code> 重新生成，因此不逐个解释其中的第三方文件。</p>
+<h2 id="内容原型">内容原型</h2>
+<h3 id="archetypesdefaultmd"><code>archetypes/default.md</code></h3>
+<p>执行 <code>hugo new content ...</code> 时使用的默认文章模板，会自动填入创建时间、草稿状态和根据文件名生成的标题：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="toml"><code><span class="line"><span style="color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">+++</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">+++date = '{{ .Date }}'</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">draft = </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">title = </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'{{ replace .File.ContentBaseName "-" " " | title }}'</span></span></code></pre>
+<p>站点根目录也有同名 <code>archetypes/default.md</code>，站点版本优先；主题中的文件是主题独立复用时的后备默认值。</p>
+<h2 id="前端资源">前端资源</h2>
+<p><code>assets/</code> 中的文件不会像 <code>static/</code> 一样原样复制。它们先通过 <code>resources.Get</code> 进入 Hugo Pipes，再由模板决定输出方式。</p>
+<h3 id="assetscsschromacss"><code>assets/css/chroma.css</code></h3>
+<p>保存 Hugo Chroma 语法高亮器生成的两套规则：</p>
+<ul>
+<li><code>.light</code> 根类下使用 GitHub 风格的亮色高亮；</li>
+<li><code>.dark</code> 根类下使用 GitHub 风格的暗色高亮。</li>
+</ul>
+<p>文件开头和中部的注释保留了完整生成命令。它是“纳入版本控制的生成物”：应该提交，但更换配色时应重新执行 <code>hugo gen chromastyles</code>，而不是逐条手改。站点必须设置 <code>markup.highlight.noClasses = false</code>，Chroma 才会输出这些 CSS 所需的类名。</p>
+<h3 id="assetscssmaincss"><code>assets/css/main.css</code></h3>
+<p>主题的主样式文件，大致按以下职责排列：</p>
+<ol>
+<li>在 <code>:root</code> 中定义颜色、阴影、字体栈、三栏宽度等设计变量；</li>
+<li>在 <code>html[data-theme="dark"]</code> 中覆盖暗色变量；</li>
+<li>定义全局重置、无障碍辅助类和键盘跳转链接；</li>
+<li>实现顶栏、三栏布局、左右侧栏、知识树与本页目录；</li>
+<li>实现首页 Hero、目录卡片、文章列表、文章头部与正文排版；</li>
+<li>实现标题级别标记、表格、引用、图片、行内代码和代码块工具栏；</li>
+<li>为 <code>admonition</code>、<code>typeit</code>、标签页、404 和页脚提供样式；</li>
+<li>在 <code>1180px</code>、<code>860px</code>、<code>560px</code> 三个断点切换侧栏和移动端布局；</li>
+<li>通过 <code>prefers-reduced-motion</code> 尊重用户的“减少动态效果”设置。</li>
+</ol>
+<p>字体全部来自本机字体栈，没有请求远程字体。亮暗主题也主要通过 CSS 变量切换，避免维护两套组件规则。</p>
+<h3 id="assetsjsmainjs"><code>assets/js/main.js</code></h3>
+<p>一个立即执行的原生 JavaScript 模块，负责所有渐进增强交互：</p>
+<ul>
+<li>根据系统偏好和本地记录切换亮色、暗色主题，并同步浏览器 <code>theme-color</code>；</li>
+<li>在桌面端折叠侧栏，在窄屏上把侧栏改为抽屉，支持遮罩和 <code>Escape</code> 关闭；</li>
+<li>保存、恢复左侧目录树中各文件夹的展开状态；</li>
+<li>递归筛选文件树标题，按 <code>/</code> 可直接聚焦搜索框；</li>
+<li>为旧内容中未经过新渲染钩子的代码块补上统一工具栏；</li>
+<li>复制代码，并在 Clipboard API 不可用时使用兼容方案；</li>
+<li>折叠、展开代码块并维护正确的无障碍属性；</li>
+<li>使用 <code>IntersectionObserver</code> 高亮右侧目录中当前阅读的标题。</li>
+</ul>
+<p>它读写四类 <code>localStorage</code> 键：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>键</th><th>保存内容</th></tr></thead><tbody><tr><td><code>huilux-color-theme</code></td><td><code>light</code> 或 <code>dark</code></td></tr><tr><td><code>huilux-sidebar-left</code></td><td>左侧栏的桌面折叠状态</td></tr><tr><td><code>huilux-sidebar-right</code></td><td>右侧栏的桌面折叠状态</td></tr><tr><td><code>huilux-tree-open</code></td><td>各目录 URL 与展开状态组成的 JSON</td></tr></tbody></table>
+<p>脚本对本地存储、剪贴板等 API 都有失败回退；禁用 JavaScript 时文章与导航链接仍可访问，只会失去折叠、搜索、复制等增强功能。</p>
+<h2 id="页面布局模板">页面布局模板</h2>
+<p>Hugo 根据页面种类选择对应模板。除 <code>baseof.html</code> 外，这些模板都只定义名为 <code>main</code> 的区块，再由基础模板包裹成完整 HTML。</p>
+<h3 id="layoutsbaseofhtml"><code>layouts/baseof.html</code></h3>
+<p>所有页面共同的骨架，主要工作是：</p>
+<ul>
+<li>输出 <code>&#x3C;!doctype html></code>、<code>html</code>、<code>head</code> 和 <code>body</code>；</li>
+<li>检查普通文章的 <code>.TableOfContents</code> 是否真的包含列表项；</li>
+<li>根据页面种类添加 <code>kind-*</code>，没有目录时再添加 <code>no-page-toc</code>；</li>
+<li>调用 head、顶栏、左侧栏、页脚等公共 partial；</li>
+<li>提供子模板要填充的 <code>main</code> block；</li>
+<li>只在文章有目录时渲染右侧栏；</li>
+<li>输出移动端侧栏共用的遮罩按钮。</li>
+</ul>
+<p>这是三栏布局的汇合点，也是追踪一张页面由哪些组件组成时最先看的文件。</p>
+<h3 id="layoutshomehtml"><code>layouts/home.html</code></h3>
+<p>首页主体，分为三部分：</p>
+<ul>
+<li>Hero：显示当前日期、站点描述和“最近更新”锚点；</li>
+<li>分类：读取 <code>site.Home.Sections</code>，以目录卡片显示一级栏目；</li>
+<li>最近更新：从 <code>site.RegularPages</code> 中排除 <code>navHidden: true</code> 的页面，再按 <code>Lastmod</code> 倒序取前 12 篇。</li>
+</ul>
+<p>目录和文章卡片本身分别交给 <code>cards/directory.html</code> 与 <code>cards/article-row.html</code>。</p>
+<h3 id="layoutspagehtml"><code>layouts/page.html</code></h3>
+<p>普通文章页：</p>
+<ul>
+<li>显示面包屑、所属顶级栏目、发布日期、标题和描述；</li>
+<li>显示更新时间、阅读时间、字数和标签；</li>
+<li>将 Markdown 渲染结果 <code>.Content</code> 放入 <code>.prose.article-body</code>。</li>
+</ul>
+<p>其中只有 <code>.Lastmod</code> 与 <code>.Date</code> 不同时才显示“更新于”。</p>
+<h3 id="layoutssectionhtml"><code>layouts/section.html</code></h3>
+<p>由 <code>_index.md</code> 表示的栏目或目录页：</p>
+<ul>
+<li>页头展示标题、描述、栏目正文和递归文章总数；</li>
+<li><code>.Sections</code> 以卡片展示直接子目录；</li>
+<li><code>.RegularPagesRecursive</code> 列出当前目录以及所有后代目录中的文章；</li>
+<li>子目录和文章都通过 <code>page-groups.html</code> 应用统一排序规则。</li>
+</ul>
+<h3 id="layoutstaxonomyhtml"><code>layouts/taxonomy.html</code></h3>
+<p>分类法总览模板。本站只启用了 <code>tags</code>，所以它实际生成标签首页 <code>/tags/</code>，按字母顺序显示所有标签及每个标签的文章数。</p>
+<h3 id="layoutstermhtml"><code>layouts/term.html</code></h3>
+<p>单个分类项模板。对本站而言就是某个具体标签页，例如 <code>/tags/hugo/</code>；它按发布日期倒序列出带有该标签的文章。</p>
+<h3 id="layouts404html"><code>layouts/404.html</code></h3>
+<p>未找到页面时使用的主体模板，提供错误说明和返回首页链接。它仍复用 <code>baseof.html</code>，所以保留站点顶栏、侧栏和页脚。</p>
+<h2 id="可复用局部模板">可复用局部模板</h2>
+<p><code>layouts/_partials/</code> 用来拆分公共 HTML。调用 partial 时要留意传入的上下文：多数文件接收当前页面 <code>.</code>，<code>header.html</code> 接收一个同时包含页面和目录状态的字典，树节点则接收 <code>node</code> 与 <code>current</code>。</p>
+<h3 id="页面框架组件">页面框架组件</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody><tr><td><code>_partials/head.html</code></td><td>生成字符集、视口、页面标题、描述、作者、canonical、favicon 和 RSS 链接；在加载样式前内联一小段主题初始化脚本，避免暗色模式闪白；最后调用 CSS、JavaScript 资源 partial。</td></tr><tr><td><code>_partials/header.html</code></td><td>生成左侧栏开关、品牌、由 <code>site.Menus.main</code> 驱动的顶栏导航、颜色主题开关，以及有目录时才出现的右侧栏开关。</td></tr><tr><td><code>_partials/footer.html</code></td><td>显示站点版权、Hugo 链接和状态文案。</td></tr><tr><td><code>_partials/breadcrumbs.html</code></td><td>通过 <code>.Ancestors.Reverse</code> 从首页到当前页面生成层级不限的面包屑，并为当前项设置 <code>aria-current</code>。</td></tr><tr><td><code>_partials/terms.html</code></td><td>根据传入的分类法名称调用 <code>.GetTerms</code>，当前由文章页用来渲染标签链接。</td></tr></tbody></table>
+<h3 id="css-与-javascript-资源管线">CSS 与 JavaScript 资源管线</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody><tr><td><code>_partials/head/css.html</code></td><td>获取 <code>chroma.css</code> 和 <code>main.css</code>，拼接为 <code>css/site.css</code>。开发环境直接引用；正式构建时再压缩、计算内容指纹，并输出带 SRI <code>integrity</code> 的链接。</td></tr><tr><td><code>_partials/head/js.html</code></td><td>获取 <code>main.js</code>。开发环境直接引用；正式构建时压缩、加指纹和 SRI，并始终使用 <code>defer</code>，不阻塞 HTML 解析。</td></tr></tbody></table>
+<p>两者都由 <code>partialCached</code> 调用，因为同一次构建中资源结果对所有页面相同，没有必要为每篇文章重复计算。</p>
+<h3 id="列表卡片与排序函数">列表卡片与排序函数</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody><tr><td><code>_partials/cards/directory.html</code></td><td>一张目录卡片，显示目录名、递归文章数、直接子目录数和链接。首页、栏目页共同复用。</td></tr><tr><td><code>_partials/cards/article-row.html</code></td><td>一行文章摘要，显示日期、父目录、标题、描述或自动摘要，以及两个文章链接。首页、栏目页、标签页共同复用。</td></tr><tr><td><code>_partials/functions/page-groups.html</code></td><td>纯数据 partial。把传入页面拆成显式设置 <code>weight</code> 的 <code>manual</code> 和未设置的 <code>automatic</code> 两组；前者按 <code>Weight</code> 升序，后者按 <code>Date</code> 降序，并用 <code>return</code> 返回字典。</td></tr></tbody></table>
+<p>“显式设置 <code>weight</code> 的内容优先”不是 Hugo 的默认偶然结果，而是 <code>page-groups.html</code> 明确实现的主题规则。</p>
+<h3 id="左右侧栏与递归知识树">左右侧栏与递归知识树</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody><tr><td><code>_partials/sidebar/left.html</code></td><td>左侧知识树入口。显示文章总数和可选搜索框，获取首页全部一级 <code>.Sections</code>，排序后逐个调用 <code>tree/folder.html</code>。<code>params.treeSearch</code> 控制搜索框是否输出。</td></tr><tr><td><code>_partials/tree/folder.html</code></td><td>一个目录节点，也是递归核心。判断目录是否为当前页或祖先，生成稳定 ID，先递归渲染子目录，再渲染直接文章，因此目录永远排在文章前面。</td></tr><tr><td><code>_partials/tree/file.html</code></td><td>一个叶子文章节点，生成文章链接，并在当前文章上设置 <code>is-current</code> 与 <code>aria-current="page"</code>。</td></tr><tr><td><code>_partials/sidebar/right.html</code></td><td>输出 Hugo 生成的 <code>.TableOfContents</code> 和“回到顶部”链接；是否调用该文件由 <code>baseof.html</code> 判断。</td></tr></tbody></table>
+<p><code>folder.html</code> 调用自身时，每深入一级都会继续读取下一层 <code>.Sections</code>，所以树的深度由内容结构决定，没有写死二级或三级上限。</p>
+<h2 id="markdown-渲染扩展">Markdown 渲染扩展</h2>
+<h3 id="layouts_markuprender-codeblockhtml"><code>layouts/_markup/render-codeblock.html</code></h3>
+<p>这是 Goldmark 围栏代码块的渲染钩子。它在 Hugo 构建期：</p>
+<ol>
+<li>读取代码语言，不存在或为 <code>fallback</code> 时显示 <code>TEXT</code>；</li>
+<li>检查 Chroma 是否认识该语言，未知语言按纯文本处理；</li>
+<li>调用 <code>transform.HighlightCodeBlock</code> 获得高亮 HTML；</li>
+<li>为每个代码块生成唯一 ID；</li>
+<li>输出语言、折叠按钮、复制按钮及代码正文所需的语义结构。</li>
+</ol>
+<p>构建期模板负责正确 HTML，<code>main.js</code> 再负责按钮交互。旧文章中不是由该钩子生成的 <code>&#x3C;pre></code> 或 <code>.highlight</code>，也会由脚本包装成近似结构。</p>
+<h3 id="layouts_shortcodesadmonitionhtml"><code>layouts/_shortcodes/admonition.html</code></h3>
+<p>兼容旧博客的提示框短代码。第一个位置参数决定 <code>note</code>、<code>warning</code> 等类型，<code>title</code> 可改标题，<code>open="false"</code> 可让 <code>&#x3C;details></code> 默认折叠，内部 Markdown 通过 <code>markdownify</code> 渲染。</p>
+<h3 id="layouts_shortcodestypeithtml"><code>layouts/_shortcodes/typeit.html</code></h3>
+<p>兼容旧博客的 TypeIt 短代码，但不再加载打字动画库，而是输出静态内容：</p>
+<ul>
+<li>有 <code>code</code> 参数时输出带语言类名的 <code>&#x3C;pre>&#x3C;code></code>；</li>
+<li>否则使用 <code>tag</code> 参数指定标签，默认是 <code>&#x3C;span></code>；</li>
+<li>内容会去掉首尾空白，普通文本分支再经过 Markdown 渲染。</li>
+</ul>
+<p>这两个短代码的目的都是让迁移来的旧文章继续构建，而不必把全部历史内容一次性改写。</p>
+<h2 id="主题静态文件">主题静态文件</h2>
+<h3 id="staticfaviconsvg"><code>static/favicon.svg</code></h3>
+<p>现代浏览器使用的矢量站点图标，由 <code>head.html</code> 显式链接。它从主题的 <code>static/</code> 原样复制到构建结果根目录的 <code>/favicon.svg</code>。</p>
+<h3 id="staticfaviconico"><code>static/favicon.ico</code></h3>
+<p>提供给仍会自动请求 <code>/favicon.ico</code> 的浏览器和工具，包含 16×16 与 32×32 等位图尺寸。它同样原样复制，不进入 Hugo Pipes；因为是二进制文件，也被 Prettier 排除。</p>
+<h2 id="一篇文章的实际渲染链路">一篇文章的实际渲染链路</h2>
+<p>以 <code>content/博客建设/Hugo/按官方流程重建Huilux/index.md</code> 为例：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>index.md 与 Front Matter</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>站点 hugo.toml：启用主题、Goldmark、Chroma、目录和菜单</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>layouts/page.html：定义文章主体 main</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>layouts/baseof.html：组装完整页面</span></span>
+<span class="line"><span>        ├── _partials/head.html</span></span>
+<span class="line"><span>        │   ├── head/css.html ── chroma.css + main.css</span></span>
+<span class="line"><span>        │   └── head/js.html  ── main.js</span></span>
+<span class="line"><span>        ├── _partials/header.html</span></span>
+<span class="line"><span>        ├── _partials/sidebar/left.html</span></span>
+<span class="line"><span>        │   └── tree/folder.html ⇄ 递归调用自身</span></span>
+<span class="line"><span>        │       └── tree/file.html</span></span>
+<span class="line"><span>        ├── page.html 的 main</span></span>
+<span class="line"><span>        │   ├── breadcrumbs.html</span></span>
+<span class="line"><span>        │   ├── terms.html</span></span>
+<span class="line"><span>        │   └── Markdown .Content</span></span>
+<span class="line"><span>        │       └── _markup/render-codeblock.html</span></span>
+<span class="line"><span>        ├── _partials/footer.html</span></span>
+<span class="line"><span>        └── 有目录时：_partials/sidebar/right.html</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>public/ 中的 HTML、带指纹 CSS/JavaScript 和静态图标</span></span></code></pre>
+<p>模板负责构建期生成语义 HTML，CSS 负责视觉布局，JavaScript 只负责交互增强。这个边界使静态页面在脚本失败时仍然可以阅读。</p>
+<h2 id="站点配置如何驱动主题">站点配置如何驱动主题</h2>
+<p>站点根目录 <code>hugo.toml</code> 中与主题直接相关的配置如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>配置</th><th>被哪里使用</th></tr></thead><tbody><tr><td><code>title</code>、<code>copyright</code></td><td><code>head.html</code>、<code>header.html</code>、<code>footer.html</code></td></tr><tr><td><code>params.description</code>、<code>params.author</code></td><td>首页 Hero 和 head 元数据</td></tr><tr><td><code>params.treeSearch</code></td><td>决定左侧栏是否输出搜索框</td></tr><tr><td><code>menus.main</code></td><td>生成顶栏的首页、标签、关于链接</td></tr><tr><td><code>taxonomies.tag = "tags"</code></td><td>生成标签总览与标签详情页</td></tr><tr><td><code>markup.tableOfContents</code></td><td>决定 <code>.TableOfContents</code> 收集 H2–H4</td></tr><tr><td><code>markup.highlight</code></td><td>决定围栏代码、行号和 Chroma 类名</td></tr><tr><td><code>outputs</code></td><td>为首页和栏目页额外生成 RSS</td></tr></tbody></table>
+<p>还有三个参数目前只是配置中保留的意图，没有被主题模板读取：</p>
+<ul>
+<li><code>params.defaultTheme</code>：实际初始主题由 <code>head.html</code> 按本地记录或系统偏好决定；</li>
+<li><code>params.tocStartLevel</code> 与 <code>params.tocEndLevel</code>：实际目录层级由 <code>markup.tableOfContents.startLevel/endLevel</code> 决定。</li>
+</ul>
+<p>如果以后希望它们生效，需要在模板中显式读取，而不是只修改配置值。</p>
+<p>同理，文章 Front Matter 中的 <code>toc</code> 当前也没有被模板读取。<code>baseof.html</code> 会根据文章是否实际生成了目录项自动决定右侧栏是否出现；仅设置 <code>toc: false</code> 还不能关闭目录。</p>
+<h2 id="修改功能时应该找哪个文件">修改功能时应该找哪个文件</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>想修改的内容</th><th>首先查看</th></tr></thead><tbody><tr><td>站点标题、作者、菜单、目录层级、代码高亮选项</td><td>站点根目录 <code>hugo.toml</code></td></tr><tr><td>全站 HTML 骨架、三栏是否出现</td><td><code>layouts/baseof.html</code></td></tr><tr><td>浏览器标题、SEO 基础元数据、favicon、首屏主题</td><td><code>_partials/head.html</code></td></tr><tr><td>顶部导航和侧栏按钮</td><td><code>_partials/header.html</code></td></tr><tr><td>首页文案、分类和最近更新</td><td><code>layouts/home.html</code></td></tr><tr><td>文章页标题、元数据和正文结构</td><td><code>layouts/page.html</code></td></tr><tr><td>栏目页的子目录与文章列表</td><td><code>layouts/section.html</code></td></tr><tr><td>标签总览与单标签列表</td><td><code>layouts/taxonomy.html</code>、<code>layouts/term.html</code></td></tr><tr><td>左侧树的 HTML 和递归规则</td><td><code>_partials/sidebar/left.html</code>、<code>_partials/tree/</code></td></tr><tr><td><code>weight</code> 与日期排序</td><td><code>_partials/functions/page-groups.html</code></td></tr><tr><td>颜色、字号、间距、响应式断点</td><td><code>assets/css/main.css</code></td></tr><tr><td>Chroma token 配色</td><td><code>assets/css/chroma.css</code></td></tr><tr><td>主题、侧栏、搜索、代码按钮、目录高亮交互</td><td><code>assets/js/main.js</code></td></tr><tr><td>Markdown 围栏代码块 HTML</td><td><code>layouts/_markup/render-codeblock.html</code></td></tr><tr><td>旧文章提示框或 TypeIt 兼容</td><td><code>layouts/_shortcodes/</code></td></tr><tr><td>浏览器图标</td><td><code>static/favicon.svg</code>、<code>static/favicon.ico</code></td></tr></tbody></table>
+<h2 id="哪些目录不应手工维护">哪些目录不应手工维护</h2>
+<ul>
+<li><code>node_modules/</code>：由 <code>npm install</code> 生成；</li>
+<li><code>.git/</code>：由 Git 管理；</li>
+<li><code>.hugo_build.lock</code>：由 Hugo 运行时生成；</li>
+<li>主题或站点中的 <code>public/</code>：完整静态构建结果；</li>
+<li><code>resources/_gen/</code>：Hugo 资源缓存；</li>
+<li><code>package-lock.json</code>：由 npm 根据依赖变化更新；</li>
+<li><code>assets/css/chroma.css</code>：由 <code>hugo gen chromastyles</code> 重新生成。</li>
+</ul>
+<p>这些文件与目录有的需要提交、有的不需要提交，但共同点是都不适合把内部内容当成手写业务源码逐项修改。</p>
+<h2 id="用页面包组织多级目录">用页面包组织多级目录</h2>
+<p>Hugo 使用两种页面包：</p>
+<ul>
+<li><code>_index.md</code> 表示 branch bundle，也就是可以继续包含子目录和文章的目录；</li>
+<li><code>index.md</code> 表示 leaf bundle，也就是一篇文章及其图片、附件。</li>
+</ul>
+<p>例如：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>content/</span></span>
+<span class="line"><span>└── 网络技术/</span></span>
+<span class="line"><span>    ├── _index.md</span></span>
+<span class="line"><span>    └── 网络协议/</span></span>
+<span class="line"><span>        ├── _index.md</span></span>
+<span class="line"><span>        └── HTTP/</span></span>
+<span class="line"><span>            ├── index.md</span></span>
+<span class="line"><span>            └── request-flow.png</span></span></code></pre>
+<p>这种结构可以继续向下嵌套。主题递归读取 Hugo 页面树，所以左侧导航不限制目录深度。</p>
+<h2 id="创建目录和文章">创建目录和文章</h2>
+<p>创建一个可继续嵌套的目录：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> new</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> content</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 网络技术/网络协议/_index.md</span></span></code></pre>
+<p>创建一篇带独立资源目录的文章：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> new</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> content</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 网络技术/网络协议/HTTP/index.md</span></span></code></pre>
+<p>文章图片直接放在 <code>HTTP/</code> 目录内，然后使用相对路径：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">![</span><span style="color:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">HTTP 请求流程</span><span style="color:#24292E;--shiki-dark:#E1E4E8">](</span><span style="color:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">request-flow.png</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p>移动整篇文章时，正文与资源会一起移动。</p>
+<h2 id="排序和置顶">排序和置顶</h2>
+<p>主题遵守以下顺序：</p>
+<ol>
+<li>文件夹始终排在文章之前；</li>
+<li>显式设置 <code>weight</code> 的项目优先，数值越小越靠前；</li>
+<li>未设置 <code>weight</code> 的项目按日期倒序。</li>
+</ol>
+<p>例如把文章置顶：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">---</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">title</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'重要文章'</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">weight</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">---</span></span></code></pre>
+<h2 id="草稿箱">草稿箱</h2>
+<p>旧博客中的草稿集中迁移到：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>content/草稿箱/</span></span></code></pre>
+<p>它们继续保留 <code>draft: true</code>。正式构建不会出现草稿箱，开发预览时使用 <code>-D</code>：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> server</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -D</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1314</span></span></code></pre>
+<h2 id="主题交互">主题交互</h2>
+<p><code>huilux-tree</code> 提供：</p>
+<ul>
+<li>可递归展开的左侧文件树；</li>
+<li>只筛选文章与目录标题的即时搜索；</li>
+<li>可折叠的左侧导航和右侧文章目录；</li>
+<li>移动端抽屉导航；</li>
+<li>跟随系统并可手动切换的亮色、暗色主题；</li>
+<li>H2–H4 文章目录和滚动高亮；</li>
+<li>对旧 <code>admonition</code>、<code>typeit</code> 短代码的兼容。</li>
+</ul>
+<p>折叠状态、目录展开状态和颜色主题都保存在浏览器本地，下次访问会自动恢复。</p>
+<h2 id="本地预览与构建">本地预览与构建</h2>
+<p>开发预览：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> /home/ming/blog/huilux</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> server</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -D</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1314</span></span></code></pre>
+<p>正式构建：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">hugo</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> --minify</span></span></code></pre>
+<p>生成的静态网站位于 <code>public/</code>，可以部署到任意静态托管服务。</p></div></div></div><aside class="right-rail" id="right-rail" aria-label="页面上下文" data-astro-cid-5kbjrbpr><div class="rail-sticky" data-astro-cid-5kbjrbpr><nav class="table-of-contents" aria-label="文章目录" data-astro-cid-p33bl5ka><div class="toc-heading" data-astro-cid-p33bl5ka><div class="toc-label" data-astro-cid-p33bl5ka><p data-astro-cid-p33bl5ka>ON THIS SIGNAL</p><span data-astro-cid-p33bl5ka>52</span></div></div><ol id="article-toc-list" role="list" data-astro-cid-p33bl5ka><li data-depth="2" data-astro-cid-p33bl5ka><a href="#确认-hugo-版本" data-astro-cid-p33bl5ka>确认 Hugo 版本</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#使用官方命令创建项目" data-astro-cid-p33bl5ka>使用官方命令创建项目</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#创建本地主题" data-astro-cid-p33bl5ka>创建本地主题</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#站点与主题是两层项目" data-astro-cid-p33bl5ka>站点与主题是两层项目</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#主题完整目录" data-astro-cid-p33bl5ka>主题完整目录</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#根目录文件与开发工具" data-astro-cid-p33bl5ka>根目录文件与开发工具</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#readmemd" data-astro-cid-p33bl5ka>README.md</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#hugotoml" data-astro-cid-p33bl5ka>hugo.toml</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#packagejson" data-astro-cid-p33bl5ka>package.json</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#package-lockjson" data-astro-cid-p33bl5ka>package-lock.json</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#prettierrcjson" data-astro-cid-p33bl5ka>.prettierrc.json</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#prettierignore" data-astro-cid-p33bl5ka>.prettierignore</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#gitignore" data-astro-cid-p33bl5ka>.gitignore</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#git" data-astro-cid-p33bl5ka>.git/</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#hugo_buildlock" data-astro-cid-p33bl5ka>.hugo_build.lock</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#node_modules" data-astro-cid-p33bl5ka>node_modules/</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#内容原型" data-astro-cid-p33bl5ka>内容原型</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#archetypesdefaultmd" data-astro-cid-p33bl5ka>archetypes/default.md</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#前端资源" data-astro-cid-p33bl5ka>前端资源</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#assetscsschromacss" data-astro-cid-p33bl5ka>assets/css/chroma.css</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#assetscssmaincss" data-astro-cid-p33bl5ka>assets/css/main.css</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#assetsjsmainjs" data-astro-cid-p33bl5ka>assets/js/main.js</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#页面布局模板" data-astro-cid-p33bl5ka>页面布局模板</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layoutsbaseofhtml" data-astro-cid-p33bl5ka>layouts/baseof.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layoutshomehtml" data-astro-cid-p33bl5ka>layouts/home.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layoutspagehtml" data-astro-cid-p33bl5ka>layouts/page.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layoutssectionhtml" data-astro-cid-p33bl5ka>layouts/section.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layoutstaxonomyhtml" data-astro-cid-p33bl5ka>layouts/taxonomy.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layoutstermhtml" data-astro-cid-p33bl5ka>layouts/term.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layouts404html" data-astro-cid-p33bl5ka>layouts/404.html</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#可复用局部模板" data-astro-cid-p33bl5ka>可复用局部模板</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#页面框架组件" data-astro-cid-p33bl5ka>页面框架组件</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#css-与-javascript-资源管线" data-astro-cid-p33bl5ka>CSS 与 JavaScript 资源管线</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#列表卡片与排序函数" data-astro-cid-p33bl5ka>列表卡片与排序函数</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#左右侧栏与递归知识树" data-astro-cid-p33bl5ka>左右侧栏与递归知识树</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#markdown-渲染扩展" data-astro-cid-p33bl5ka>Markdown 渲染扩展</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layouts_markuprender-codeblockhtml" data-astro-cid-p33bl5ka>layouts/_markup/render-codeblock.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layouts_shortcodesadmonitionhtml" data-astro-cid-p33bl5ka>layouts/_shortcodes/admonition.html</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#layouts_shortcodestypeithtml" data-astro-cid-p33bl5ka>layouts/_shortcodes/typeit.html</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#主题静态文件" data-astro-cid-p33bl5ka>主题静态文件</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#staticfaviconsvg" data-astro-cid-p33bl5ka>static/favicon.svg</a></li><li data-depth="3" data-astro-cid-p33bl5ka><a href="#staticfaviconico" data-astro-cid-p33bl5ka>static/favicon.ico</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#一篇文章的实际渲染链路" data-astro-cid-p33bl5ka>一篇文章的实际渲染链路</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#站点配置如何驱动主题" data-astro-cid-p33bl5ka>站点配置如何驱动主题</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#修改功能时应该找哪个文件" data-astro-cid-p33bl5ka>修改功能时应该找哪个文件</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#哪些目录不应手工维护" data-astro-cid-p33bl5ka>哪些目录不应手工维护</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#用页面包组织多级目录" data-astro-cid-p33bl5ka>用页面包组织多级目录</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#创建目录和文章" data-astro-cid-p33bl5ka>创建目录和文章</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#排序和置顶" data-astro-cid-p33bl5ka>排序和置顶</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#草稿箱" data-astro-cid-p33bl5ka>草稿箱</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#主题交互" data-astro-cid-p33bl5ka>主题交互</a></li><li data-depth="2" data-astro-cid-p33bl5ka><a href="#本地预览与构建" data-astro-cid-p33bl5ka>本地预览与构建</a></li></ol></nav><script type="module">var e=()=>{};function t(){e();let t=new AbortController,{signal:n}=t,r=document.querySelector(`.table-of-contents`);if(!r){e=()=>t.abort();return}let i=[...r.querySelectorAll(`a[href^="#"]`)],a=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(e=>!!e),o=!1,s=0;function c(){let e=document.querySelector(`.site-header`)?.getBoundingClientRect().height??64,t=[...a].reverse().find(t=>t.getBoundingClientRect().top<=e+32)??a[0];if(t){for(let e of i)decodeURIComponent(e.hash.slice(1))===t.id?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`);o=!1}}function l(){o||(o=!0,s=requestAnimationFrame(c))}c(),window.addEventListener(`scroll`,l,{passive:!0,signal:n}),window.addEventListener(`resize`,l,{signal:n}),e=()=>{cancelAnimationFrame(s),t.abort()}}t(),document.addEventListener(`astro:page-load`,t);</script></div></aside></div></main><footer class="site-footer" data-astro-cid-nns7i3if><div class="footer-inner container" data-astro-cid-nns7i3if><p data-astro-cid-nns7i3if><span class="status" aria-hidden="true" data-astro-cid-nns7i3if></span>HUILUX · signal online</p><p data-astro-cid-nns7i3if>© 2026 · Built with <a href="https://astro.build/" data-astro-cid-nns7i3if>Astro</a></p></div></footer></body></html><script type="module">var e=()=>{},t=`a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])`;function n(){e();let n=new AbortController,{signal:r}=n,i=document.querySelector(`.blog-shell`),a=document.querySelector(`#content-drawer`),o=document.querySelector(`#right-rail`),s=i?.querySelector(`.drawer-close`),c=i?.querySelector(`.drawer-backdrop`),l=window.matchMedia(`(max-width: 52rem)`),u=window.matchMedia(`(max-width: 74rem)`),d=!1,f=!1,p;if(!i||!a){e=()=>n.abort();return}function m(){let e=!l.matches,t=!u.matches,n=e?!document.body.classList.contains(`left-collapsed`):document.body.classList.contains(`mobile-left-open`),r=t?!document.body.classList.contains(`right-collapsed`):document.body.classList.contains(`mobile-right-open`),i=!e&&document.body.classList.contains(`mobile-left-open`),c=!t&&document.body.classList.contains(`mobile-right-open`);a.setAttribute(`aria-hidden`,String(!n)),a.inert=!n,i?(a.setAttribute(`role`,`dialog`),a.setAttribute(`aria-modal`,`true`)):(a.removeAttribute(`role`),a.removeAttribute(`aria-modal`)),o&&(o.setAttribute(`aria-hidden`,String(!r)),o.inert=!r,c?(o.setAttribute(`role`,`dialog`),o.setAttribute(`aria-modal`,`true`)):(o.removeAttribute(`role`),o.removeAttribute(`aria-modal`))),document.body.style.overflow=i||c?`hidden`:``,i&&!d&&s?.focus({preventScroll:!0}),c&&!f&&o?.querySelector(`a[href^="#"]`)?.focus({preventScroll:!0}),d=i,f=c}function h(){document.body.classList.remove(`mobile-left-open`,`mobile-right-open`)}function g(){l.matches||document.body.classList.remove(`mobile-left-open`),u.matches||document.body.classList.remove(`mobile-right-open`),m()}p=new MutationObserver(m),p.observe(document.body,{attributeFilter:[`class`]}),s?.addEventListener(`click`,()=>document.body.classList.remove(`mobile-left-open`),{signal:r}),c?.addEventListener(`click`,h,{signal:r}),a.addEventListener(`click`,e=>{e.target.closest(`a`)&&document.body.classList.remove(`mobile-left-open`)},{signal:r}),document.addEventListener(`keydown`,e=>{let n=document.body.classList.contains(`mobile-left-open`),r=document.body.classList.contains(`mobile-right-open`),i=n?a:r?o:null;if(e.key===`Escape`&&i){h();return}if(e.key!==`Tab`||!i)return;let s=[...i.querySelectorAll(t)].filter(e=>e.offsetParent!==null),c=s[0],l=s.at(-1);!c||!l||(e.shiftKey&&document.activeElement===c?(e.preventDefault(),l.focus()):!e.shiftKey&&document.activeElement===l&&(e.preventDefault(),c.focus()))},{signal:r}),l.addEventListener(`change`,g,{signal:r}),u.addEventListener(`change`,g,{signal:r}),g(),e=()=>{p?.disconnect(),n.abort()}}n(),document.addEventListener(`astro:page-load`,n);</script>
